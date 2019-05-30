@@ -17,7 +17,7 @@ class CreateDevisarticlesTable extends Migration
             $table->Increments('id');
              $table->string('descr')->nullable();
             $table->integer('devis_id')->unsigned();
-            $table->foreign('devis_id')->references('id')->on('devis');
+            $table->foreign('devis_id')->references('id')->on('devis')->onDelete('cascade');;
             $table->integer('article_id')->unsigned();
             $table->foreign('article_id')->references('id')->on('articles');
             $table->integer('qte');

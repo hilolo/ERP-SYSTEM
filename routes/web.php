@@ -40,17 +40,29 @@ Route::get('/Vente/Articles/Data', 'ArticleController@data');
 
 Route::post('/insertArticle', 'ArticleController@insert');
 Route::post('/updateArticle/{id}', 'ArticleController@update');
-Route::get('/SupprimerArticle/{id}', 'ArticleController@destroy')->name('aa');;
+Route::get('/SupprimerArticle/{id}', 'ArticleController@destroy')->name('aa');
 
 
 
 Route::get('/Vente/Devis', 'DevisController@index');
 Route::get('/Vente/AjouterDevis', 'DevisController@storeaf');
 Route::get('/Vente/Devis/Data', 'DevisController@data');
-
+Route::get('/Vente/Devis/{id}/View', 'DevisController@View');
 
 
 Route::post('/insertDevis', 'DevisController@insert');
+Route::post('/updateDevis/{id}', 'DevisController@updatev');
+Route::get('/updateDevisq/{id}', 'DevisController@updatev')->name('edeetu');
+Route::get('/SupprimerDevis/{id}', 'DevisController@destroy')->name('deletedevis');
+
+
+Route::get('/Vente/Boncommande', 'BoncommandeController@index');
+Route::get('/Vente/AjouterBoncommande', 'BoncommandeController@storeaf');
+Route::get('/Vente/Devis/Data2', 'BoncommandeController@data');
+Route::get('/Vente/Boncommande/{id}/View', 'BoncommandeController@View');
+
+
+
 
 
 

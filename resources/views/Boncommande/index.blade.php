@@ -3,13 +3,13 @@
 @section('content')
 <div class="content-header row mb-1">
           <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Les Devis</h3>
+            <h3 class="content-header-title">Les Bon de commandes</h3>
             <div class="row breadcrumbs-top">
               <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="index.html">Ventes</a>
                   </li>
-                  <li class="breadcrumb-item active"><a href="#">Les Devis</a>
+                  <li class="breadcrumb-item active"><a href="#">Bon de commandes</a>
                   </li>
 
                   
@@ -27,14 +27,14 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Les Devis</h4>
+                    <h4 class="card-title">Les Bon de commandes</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                  
                 </div>
                 
          <div class="float-right" style="margin-right: 15px;">
-                        <a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right white" href="/Vente/AjouterDevis">
-                            <i class="ft-plus white"></i>Nouveau Devis
+                        <a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right white" href="/Vente/AjouterBoncommande">
+                            <i class="ft-plus white"></i>Nouveau Bon de commande
                         </a>
                     </div>
      
@@ -51,12 +51,12 @@
                                     <thead>
                                         <tr>
                                         <td>N° de devis</td>
-                                        <td >Date du devis</td>
+                                        <td >Date du Confirmation</td>
                                         <td>Client</td>
                                         <td>Total</td>
                                         <td>status</td>
                                          <td>Action</td>
-                                        <td> Commande</td>
+                                        <td >Facture</td>
                                         </tr>
                                     </thead>
                                   
@@ -89,12 +89,12 @@
 
                             ,processing: false,
             serverSide: true,
-              "order": [[ 1, "desc" ]],
-            ajax: 'http://erp.test/Vente/Devis/Data',
+              "order": [[ 1, "asc" ]],
+            ajax: '/Vente/Devis/Data2',
             "pageLength": 50,
              columns: [
             {data: 'id'},
-            {data: 'date_devis'},
+            {data: 'date_confirmation'},
             {data: 'name'},
             {data: 'Total'},
             {data: 'etat'},
