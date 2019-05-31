@@ -1,33 +1,65 @@
-@extends('layouts.off')
-
-@section('content')
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<head>
+<meta charset="utf-8">  
+  <title>ERP</title>
+  <link rel="apple-touch-icon" href="{{ asset('app-assets/images/ico/apple-icon-120.png') }}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/ico/favicon.ico') }}">
 
  
 
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/vendors.css') }}">
 
-<div class="content-header row mb-1">
-          <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Les Devis</h3>
-            <div class="row breadcrumbs-top">
-              <div class="breadcrumb-wrapper col-12">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html">Ventes</a>
-                  </li>
-                  <li class="breadcrumb-item active"><a href="#">Les Bon de commandes</a>
-                  </li>
+  
 
-                  
-                </ol>
-              </div>
-            </div>
-          </div>
-      
 
-          
-        </div>
+
+
+
+
+  <!-- END VENDOR CSS-->
+  <!-- BEGIN MODERN CSS-->
+  <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/app.css') }}">
+
+  <!-- BEGIN Custom CSS-->
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+
+
+  <style type="text/css">
+
+
+
+  .navbar-dark.navbar-horizontal {
+    background: #42729a;
+}
+
+.modal-header {
+    border-bottom: 0px solid #98A4B8;
+  }
+.modal-footer {
+   
+    border-top: 0px solid #98A4B8;
+}
+.moduless{
+
+  font-size: 10px;
+  
+}
+
+.btn-float.btn-float-lg i + span {
+    font-size: 0.8rem;
+}
+
+</style>
+  <!-- END Custom CSS-->
+</head>
+
+
 
        
-
+<body class="horizontal-layout horizontal-menu horizontal-menu-padding 2-columns   menu-expanded"
+data-open="click" data-menu="horizontal-menu" data-col="2-columns" >
 
 <section class="card">
     <div id="invoice-template" class="card-body">
@@ -54,7 +86,10 @@
                   </div>
               
             </div>
-            <div class="col-md-6 col-sm-12 text-center text-md-right">
+           
+        </div>
+        <div id="invoice-customer-details" class="row pt-2">
+         <div class="col-md-6 col-sm-12 text-center text-md-right">
               
              <div class="col-md-7 pull-right">
                             <div class="form-group">
@@ -69,8 +104,7 @@
                           
                           
                
-            </div>
-        </div>
+            </div>  </div>
 
         <!--/ Invoice Customer Details -->
 
@@ -165,28 +199,21 @@
         </div>
 
         <!-- Invoice Footer -->
-        <div id="invoice-footer">
-            <div class="row">
-                <div class="col-md-7 col-sm-12">
-                    
-                </div>
-                <div class="col-md-5 col-sm-12 text-center">
-                    <form method="POST" action="/updateDevis/{{ $art->id }}">
-                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button type="button"  onclick="location.href='http://erp.test/Vente/Boncommande/print/{{ $art -> id  }}'"   class="btn btn-info btn-m my-1"><i class="la  la-file-zip-o"></i>Imprimer</button>
-
-                    
-                   
-                        </form>
-                </div>
-
-            </div>
-        </div>
+      
         <!--/ Invoice Footer -->
 
     </div>
 </section>
 
-  
 
-@endsection
+
+  </body>
+
+  <!-- BEGIN VENDOR JS-->
+
+
+
+
+
+</body>
+</html>

@@ -48,6 +48,11 @@ Route::get('/Vente/Devis', 'DevisController@index');
 Route::get('/Vente/AjouterDevis', 'DevisController@storeaf');
 Route::get('/Vente/Devis/Data', 'DevisController@data');
 Route::get('/Vente/Devis/{id}/View', 'DevisController@View');
+Route::get('/Vente/Devis/print/{id}', 'DevisController@pdf')->name('pdfdv');;;
+
+
+
+
 
 
 Route::post('/insertDevis', 'DevisController@insert');
@@ -60,9 +65,12 @@ Route::get('/Vente/Boncommande', 'BoncommandeController@index');
 Route::get('/Vente/AjouterBoncommande', 'BoncommandeController@storeaf');
 Route::get('/Vente/Devis/Data2', 'BoncommandeController@data');
 Route::get('/Vente/Boncommande/{id}/View', 'BoncommandeController@View');
+Route::get('/Vente/Boncommande/print/{id}', 'BoncommandeController@pdf')->name('imprbond');
 
 
+Route::get('/Vente/Factures', 'FactureController@index');
 
-
+Route::get('/Vente/Facture/print', 'FactureController@pdf');
+Route::get('/Vente/Facture/insert/{id}', 'FactureController@insert')->name('insertfac');;
 
 

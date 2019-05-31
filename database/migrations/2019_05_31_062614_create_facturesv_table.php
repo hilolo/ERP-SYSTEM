@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDevisarticlesTable extends Migration
+class CreateFacturesvTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,13 @@ class CreateDevisarticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('devisarticles', function (Blueprint $table) {
+        Schema::create('facturesv', function (Blueprint $table) {
             $table->Increments('id');
-             $table->string('descr')->nullable();
+            $table->integer('year');
+            $table->integer('number');
             $table->integer('devis_id')->unsigned();
             $table->foreign('devis_id')->references('id')->on('devis')->onDelete('cascade');
-            $table->integer('article_id')->unsigned();
-            $table->foreign('article_id')->references('id')->on('articles');
-            $table->integer('qte');
-            $table->float('soustotal')->nullable();
-
-
+            $table->date('date_facture')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +31,6 @@ class CreateDevisarticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('devisarticles');
+        Schema::dropIfExists('facturesv');
     }
 }

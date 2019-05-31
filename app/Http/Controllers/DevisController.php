@@ -9,14 +9,34 @@ use App\Devis;
 use App\Devisarticles;
 use DB; 
 use DateTime;
+use PDF;
+
+
 class DevisController extends Controller
 {
    public function index()
     {
     	
+
     	
         return view('Devis.index');
     }
+
+
+     public function pdf($id)
+    {
+     
+        $art=Devis::find($id);
+    $pdf = PDF::loadView('Devis.pdf',compact('art'));
+
+        //return $pdf->download('invoice.pdf');
+    return $pdf->stream();
+
+    }
+
+
+
+
 
      public function insert(Request $request)
     {
@@ -267,7 +287,7 @@ class DevisController extends Controller
                                            
                                          
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Imprimer</a>
+                                            <a class="dropdown-item" href="'. route('pdfdv', $user->id).'">Imprimer</a>
                                         </div>
                                     </div>
                         ';
@@ -282,6 +302,7 @@ class DevisController extends Controller
                  <div class="btn-group mr-1 mb-1 text-center">
                           <a href="'. route('deletedevis', $user->id) .'"><i class="la la-trash danger"></i> </a>
                           </div>
+
                         ';
             })
               ->rawColumns(['action' => 'action2','action2' => 'action2'])     

@@ -9,6 +9,7 @@ use App\Devis;
 use App\Devisarticles;
 use DB; 
 use DateTime;
+use PDF;
 
 class BoncommandeController extends Controller
 {
@@ -18,6 +19,20 @@ class BoncommandeController extends Controller
        
         return view('Boncommande.index');
     }
+
+     public function pdf($id)
+    {
+       
+
+        $art=Devis::find($id);
+    $pdf = PDF::loadView('Boncommande.pdf',compact('art'));
+
+        //return $pdf->download('invoice.pdf');
+    return $pdf->stream();
+
+     
+    }
+
 
         public function storeaf()
     {       
@@ -71,7 +86,7 @@ class BoncommandeController extends Controller
                 return '
                       
                        
-                       <a href="/Vente/Devis//View"><i class="la la-file-archive-o secondary"></i> </a>
+                       <a href="'.route('insertfac', $user->id).'"><i class="la la-file-archive-o secondary"></i> </a>
                           </div>
                           
                           
@@ -90,6 +105,10 @@ class BoncommandeController extends Controller
                  <div class="btn-group mr-1 mb-1 text-center">
                           <a href="'. route('deletedevis', $user->id) .'"><i class="la la-trash danger"></i> </a>
                           </div>
+
+                            <div class="btn-group mr-1 mb-1 text-center">
+                          <a href="'. route('imprbond', $user->id) .'"><i class="la la-file-text secondary"></i> </a>
+                          </div>
                         ';
             })
               ->rawColumns(['action' => 'action2','action2' => 'action2'])     
@@ -100,6 +119,8 @@ class BoncommandeController extends Controller
       public function View($id)
          {      
         $art=Devis::find($id);
+
+        //a
 
         return view('Boncommande.view',compact('art'));
         }
