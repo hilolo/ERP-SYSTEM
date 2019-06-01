@@ -22,6 +22,8 @@ Route::get('/Vente', 'HomeController@index2')->name('home2');
 Route::get('/loginn', 'HomeController@login')->name('loginn');
 
 
+
+///////////////////////////////
 Route::get('/Vente/Clients', 'ClientsController@index');
 Route::get('/Vente/{id}/View', 'ClientsController@View');
 Route::get('/Vente/AjouterClient', 'ClientsController@storeaf');
@@ -68,9 +70,30 @@ Route::get('/Vente/Boncommande/{id}/View', 'BoncommandeController@View');
 Route::get('/Vente/Boncommande/print/{id}', 'BoncommandeController@pdf')->name('imprbond');
 
 
-Route::get('/Vente/Factures', 'FactureController@index');
 
-Route::get('/Vente/Facture/print', 'FactureController@pdf');
+Route::get('/Vente/Factures', 'FactureController@index');
+Route::get('/Vente/Facture/pdf/{id}', 'FactureController@pdf');
+Route::get('/Vente/Facture/pdfd/{id}', 'FactureController@download');
 Route::get('/Vente/Facture/insert/{id}', 'FactureController@insert')->name('insertfac');;
+Route::get('/Vente/Facture/Data', 'FactureController@data');
+
+
+///////////////////////////////////////////
+
+Route::get('/Achat/Fournisseurs', 'FournisseurController@index');
+
+
+
+Route::get('/Achat/Articles', 'ArticleController@index');
+Route::get('/Achat/AjouterArticle', 'ArticleController@storeaf');
+Route::get('/Achat/{id}/ModifierArticle', 'ArticleController@updateaf');
+Route::get('/Achat/Articles/Data', 'ArticleController@data');
+
+
+Route::post('/insertArticle', 'ArticleController@insert');
+Route::post('/updateArticle/{id}', 'ArticleController@update');
+Route::get('/SupprimerArticle/{id}', 'ArticleController@destroy')->name('aa');
+
+Route::get('/Achat/Fournisseurs', 'FournisseurController@index');
 
 

@@ -46,13 +46,11 @@
                                 <table class="table alt-pagination customer-wrapper dataTable no-footer" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                        <td>N° de devis</td>
-                                        <td >Date du devis</td>
+                                        <td>N° de Facture</td>
+                                        <td >Date du Facturation</td>
                                         <td>Client</td>
-                                        <td>Total</td>
-                                        <td>status</td>
+                                        <td>Document origin</td>
                                          <td>Action</td>
-                                        <td> Commande</td>
                                         </tr>
                                     </thead>
                                   
@@ -85,16 +83,14 @@
 
                             ,processing: false,
             serverSide: true,
-              "order": [[ 1, "desc" ]],
-            ajax: 'http://erp.test/Vente/Devis/Data',
+              "order": [[ 0, "desc" ]],
+            ajax: 'http://erp.test/Vente/Facture/Data',
             "pageLength": 50,
              columns: [
-            {data: 'id'},
-            {data: 'date_devis'},
+            {data: 'number'},
+            {data: 'date_facture'},
             {data: 'name'},
-            {data: 'Total'},
-            {data: 'etat'},
-            {data: 'action2', name: 'action2', orderable: false, searchable: false},
+            {data: 'id'},
              {data: 'action', name: 'action', orderable: false, searchable: false},
              
 

@@ -86,7 +86,7 @@ class BoncommandeController extends Controller
                 return '
                       
                        
-                       <a href="'.route('insertfac', $user->id).'"><i class="la la-file-archive-o secondary"></i> </a>
+                       <a href="'.route('insertfac', $user->id).'" onclick="javascript:return confirm("Are you sure you want to delete this comment?")" ><i class="la la-file-archive-o secondary"></i> </a>
                           </div>
                           
                           

@@ -263,7 +263,7 @@ class DevisController extends Controller
 
              $articles =DB::table('clients')
              ->join('devis', 'devis.client_id', '=', 'clients.id')
-             //->where('devis.type', '1')
+            ->whereIn('devis.type', ['1','2'])
              ->get();
               
 

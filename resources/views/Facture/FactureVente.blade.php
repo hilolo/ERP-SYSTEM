@@ -68,7 +68,7 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
 			</div>
 			<div class="col-md-6 col-sm-12 text-center text-md-right">
 				 <h2>Facture</h2>
-				 <p class="pb-3"># 2019/{{ $art->id }}</p>
+				 <p class="pb-3">FAC/00{{ $art->number }}/{{ $art->year }}</p>
 				<input type="text" class="hidden" name="">
 			</div>
 		</div>
@@ -79,7 +79,7 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
             
             <div class="col-md-6 col-sm-12 text-center text-md-left">
                <div class="col-md-6 col-sm-12 ">
-                <h4 class="card-title"> Client : {{ $art->client->name }}</h4>
+                <h4 class="card-title"> Client : {{ $art->devis->client->name }}</h4>
              
                   </div>
               
@@ -93,7 +93,7 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
               
              <div class="col-md-10 pull-right">
                             <div class="form-group">
-                             <h4 class="card-title" style="    text-align: left;"> Date de facturation: {{ $art->condition_paiment }}</h4>
+                             <h4 class="card-title" style="    text-align: left;"> Date de facturation: {{ $art->date_facture }}</h4>
                             
                             </div>
                              
@@ -124,7 +124,7 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
 					    </tr>
 					  </thead>
 					  <tbody>
-					  	   @foreach($art->devisarticle as $ass)
+					  	   @foreach($art->devis->devisarticle as $ass)
 						
  
 					    <tr>
@@ -179,15 +179,15 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
 						  <tbody>
 						  	<tr>
 						  		<td> Montant HT</td>
-						  		<td class="text-right"> {{ $art -> Montant  }} MAD </td>
+						  		<td class="text-right"> {{ $art->devis -> Montant  }} MAD </td>
 						  	</tr>
 						  	<tr>
 						  		<td>Taxes </td>
-						  		<td class="text-right pink">{{ $art -> Taxe  }} MAD</td>
+						  		<td class="text-right pink">{{ $art->devis -> Taxe  }} MAD</td>
 						  	</tr>
 						  	<tr>
 						  		<td class="text-bold-800">Total</td>
-						  		<td class="text-bold-800 text-right"> {{ $art -> Total  }} MAD</td>
+						  		<td class="text-bold-800 text-right"> {{ $art->devis -> Total  }} MAD</td>
 						  	</tr>
 						 
 						  </tbody>
