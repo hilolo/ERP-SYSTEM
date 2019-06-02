@@ -1,14 +1,13 @@
 @extends('layouts.off')
 
 @section('content')
-
 <div class="content-header row mb-1">
           <div class="content-header-left col-md-6 col-12 mb-2">
             <h3 class="content-header-title">Articles</h3>
             <div class="row breadcrumbs-top">
               <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html">Ventes</a>
+                  <li class="breadcrumb-item"><a href="index.html">Achat</a>
                   </li>
                   <li class="breadcrumb-item active"><a href="#">Articles</a>
                   </li>
@@ -23,8 +22,6 @@
           
         </div>
 
-       
-
 <section id="complex-header">
     <div class="row">
         <div class="col-12">
@@ -36,7 +33,7 @@
                 </div>
                 
          <div class="float-right" style="margin-right: 15px;">
-                        <a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right white" href="/Vente/AjouterArticle">
+                        <a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right white" href="/Achat/AjouterArticle">
                             <i class="ft-plus white"></i>Nouveau Article
                         </a>
                     </div>
@@ -57,6 +54,7 @@
                                         <td >prix</td>
                                         <td>TVA</td>
                                         <td>code_barre</td>
+                                        <td>etat</td>
                                         <td  >action</td>
                                         </tr>
                                     </thead>
@@ -89,33 +87,15 @@
                             }
 
                             ,processing: false,
-
             serverSide: true,
-            dom: 'Bfrtip',
-buttons: [
-//'copy', 'csv', 'excel', 'pdf', 'print'
-
- { extend: 'copy', text: 'Copier', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1'},
- { extend: 'excel', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
-                    columns: [ 0, 1, 2,3 ]
-                }  },
-  { extend: 'csv', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
-                    columns: [ 0, 1, 2,3 ]
-                }  },
- { extend: 'pdf', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
-                    columns: [ 0, 1, 2,3 ]
-                }  },
-  { extend: 'print', text: 'Imprimer Articles', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
-                    columns: [ 0, 1, 2,3 ]
-                }  }
-],
-            ajax: 'http://erp.test/Vente/Articles/Data',
+            ajax: 'http://erp.test/Achat/Articles/Data',
             "pageLength": 50,
              columns: [
             {data: 'name'},
             {data: 'prix'},
             {data: 'tva'},
             {data: 'code_barre'},
+            {data: 'etat'},
              {data: 'action', name: 'action', orderable: false, searchable: false},
 
        ]

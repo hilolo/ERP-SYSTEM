@@ -23,6 +23,7 @@ class CreateClientsTable extends Migration
             $table->string('NTVA')->nullable();
             $table->string('Site_web')->nullable();
             $table->string('FAX')->nullable();
+            $table->integer('module');
             $table->string('path_img')->default('public/clients/simple.PNG');
             $table->timestamps();
         });

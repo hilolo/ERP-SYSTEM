@@ -1,23 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Http\Request;
 use App\Articles;
 
-class ArticleController extends Controller
+class ArticleaController extends Controller
 {
-     public function index()
+
+public function index()
     {
    
-
-      
-        return view('Article.index');
+        return view('Achat.Article.index');
     }
+
 
       public function storeaf()
     {
-        return view('Article.ajouter');
+        return view('Achat.Article.ajouter');
 
 
     }
@@ -34,7 +35,7 @@ class ArticleController extends Controller
              
        
                       
-                       <a href="/Vente/' .$user->id. '/ModifierArticle" >  <i class="la la-pencil-square success"></i></a> 
+                       <a href="/Achat/' .$user->id. '/ModifierArticle" >  <i class="la la-pencil-square success"></i></a> 
                           
                     <a href="'. route('aa', $user->id) .'"><i class="la la-trash danger"></i> </a>
                       
@@ -44,7 +45,6 @@ class ArticleController extends Controller
 
                         ';
             })
-
 
      ->make(true);
         }
@@ -72,7 +72,7 @@ class ArticleController extends Controller
           }
 
             $ar->save();
-            return redirect('/Vente/Articles');
+            return redirect('/Achat/Articles');
         }
          }
 
@@ -97,7 +97,7 @@ class ArticleController extends Controller
           }
 
             $ar->save();
-            return back();
+            return redirect('/Achat/Articles');
         
 
 
@@ -107,7 +107,7 @@ class ArticleController extends Controller
          public function updateaf($id)
           {
              $art=Articles::find($id);
-            return view('Article.modifier',compact('art'));
+            return view('Achat.Article.modifier',compact('art'));
           }
 
 
@@ -116,11 +116,9 @@ class ArticleController extends Controller
       $share = Articles::find($id);
      $share->delete();
 
-      return redirect('/Vente/Articles');
+      return redirect('/Achat/Articles');
      
     }
 
 
-
-   
 }

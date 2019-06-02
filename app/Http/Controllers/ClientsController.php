@@ -10,7 +10,7 @@ class ClientsController extends Controller
 {
       public function index()
     {
-    	$files = Clients::orderBy('created_at','DESC')->paginate(30);
+      $files = Clients::orderBy('created_at','DESC')->where('module', 1)->paginate(30);
         return view('Clients.index',['Clients' => $files]);
     }
       public function insert(Request $request)
@@ -31,6 +31,7 @@ class ClientsController extends Controller
             $ar->NTVA=$request->input('ntva');
             $ar->Site_web=$request->input('site');
             $ar->FAX=$request->input('fax');
+            $ar->module=1;
            if ($request->hasFile('filee')){
           	$ar->path_img=$file->storeAs('public/clients',$file->getClientOriginalName()) ;
           }

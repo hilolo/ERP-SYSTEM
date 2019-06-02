@@ -42,7 +42,7 @@ Route::get('/Vente/Articles/Data', 'ArticleController@data');
 
 Route::post('/insertArticle', 'ArticleController@insert');
 Route::post('/updateArticle/{id}', 'ArticleController@update');
-Route::get('/SupprimerArticle/{id}', 'ArticleController@destroy')->name('aa');
+Route::get('/SupprimerArticle/{id}', 'ArticleController@destroy')->name('repmoveart');
 
 
 
@@ -50,7 +50,7 @@ Route::get('/Vente/Devis', 'DevisController@index');
 Route::get('/Vente/AjouterDevis', 'DevisController@storeaf');
 Route::get('/Vente/Devis/Data', 'DevisController@data');
 Route::get('/Vente/Devis/{id}/View', 'DevisController@View');
-Route::get('/Vente/Devis/print/{id}', 'DevisController@pdf')->name('pdfdv');;;
+Route::get('/Vente/Devis/print/{id}', 'DevisController@pdf')->name('pdfdv');
 
 
 
@@ -74,26 +74,33 @@ Route::get('/Vente/Boncommande/print/{id}', 'BoncommandeController@pdf')->name('
 Route::get('/Vente/Factures', 'FactureController@index');
 Route::get('/Vente/Facture/pdf/{id}', 'FactureController@pdf');
 Route::get('/Vente/Facture/pdfd/{id}', 'FactureController@download');
-Route::get('/Vente/Facture/insert/{id}', 'FactureController@insert')->name('insertfac');;
+Route::get('/Vente/Facture/insert/{id}', 'FactureController@insert')->name('insertfac');
 Route::get('/Vente/Facture/Data', 'FactureController@data');
 
 
 ///////////////////////////////////////////
 
+
+Route::get('/Achat/Articles', 'ArticleaController@index');
+Route::get('/Achat/AjouterArticle', 'ArticleaController@storeaf');
+Route::get('/Achat/{id}/ModifierArticle', 'ArticleaController@updateaf');
+Route::get('/Achat/Articles/Data', 'ArticleaController@data');
+
+
+
+//changment name with viewss
+Route::post('/insertArticle', 'ArticleaController@insert');
+Route::post('/updateArticle/{id}', 'ArticleaController@update');
+Route::get('/SupprimerArticle/{id}', 'ArticleaController@destroy')->name('deleteartac');
+
+
 Route::get('/Achat/Fournisseurs', 'FournisseurController@index');
+Route::get('/Achat/{id}/View', 'FournisseurController@View');
+Route::get('/Achat/ajouterFournisseur', 'FournisseurController@storeaf');
+Route::get('/Achat/{id}/ModifierFournisseur', 'FournisseurController@updateaf');
 
-
-
-Route::get('/Achat/Articles', 'ArticleController@index');
-Route::get('/Achat/AjouterArticle', 'ArticleController@storeaf');
-Route::get('/Achat/{id}/ModifierArticle', 'ArticleController@updateaf');
-Route::get('/Achat/Articles/Data', 'ArticleController@data');
-
-
-Route::post('/insertArticle', 'ArticleController@insert');
-Route::post('/updateArticle/{id}', 'ArticleController@update');
-Route::get('/SupprimerArticle/{id}', 'ArticleController@destroy')->name('aa');
-
-Route::get('/Achat/Fournisseurs', 'FournisseurController@index');
+Route::post('/insertFournisseur', 'FournisseurController@insert');
+Route::post('/updateFournisseur/{id}', 'FournisseurController@update');
+Route::post('/SupprimerFournisseur/{id}', 'FournisseurController@destroy')->name('suppc');
 
 
