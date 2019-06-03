@@ -1,23 +1,23 @@
-@extends('layouts.off')
+@extends('layouts.achat')
 
 @section('content')
 
-<form method="POST"  action="/insertDevis">
+<form method="POST"  action="/insertDemandePrix">
         {{ csrf_field() }}
   
 
 
 <div class="content-header row mb-1">
           <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Devis</h3>
+            <h3 class="content-header-title">Bon de Commands</h3>
             <div class="row breadcrumbs-top">
               <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html">Ventes</a>
+                  <li class="breadcrumb-item"><a href="index.html">Achat</a>
                   </li>
-                  <li class="breadcrumb-item "><a href="#">Clients</a>
+                  <li class="breadcrumb-item "><a href="#">Demande de Prix</a>
                   </li>
-                   <li class="breadcrumb-item active"><a href="#"> Ajouter Devis</a>
+                   <li class="breadcrumb-item active"><a href="#"> Ajouter Bon de Command</a>
                   </li>
                   
                 </ol>
@@ -40,7 +40,7 @@
              
             </div>
             <div class="col-md-6 col-sm-12 text-center text-md-right">
-                <h2>Devis</h2>
+                <h2>Bon de Command</h2>
    
                 <p class="pb-3"># SO-0000{{ $files }}</p>
               
@@ -65,29 +65,7 @@
                   </div>
               
             </div>
-            <div class="col-md-6 col-sm-12 text-center text-md-right">
-              
-             <div class="col-md-6 pull-right">
-                            <div class="form-group">
-                             <h4 class="card-title" style="    text-align: left;"> Conditions de paiement</h4>
-                              <select id="projectinput5" name="a2" class="form-control">
-                                <option value="paiement immédiat" selected=""  >paiement immédiat</option>
-                                <option value="15 jours">15 jours</option>
-                                <option value="30 jours">30 jours</option>
-                                <option value="45 jours">45 jours</option>
-                                <option value="2 mois">2 mois</option>
-                                <option value="3 mois">3 mois</option>
-                              </select>
-                            </div>
-                             
-                          </div>
-     
-
-
-                          
-                          
-               
-            </div>
+         
         </div>
         <!--/ Invoice Customer Details -->
 
@@ -164,12 +142,10 @@
             <div class="row">
                 
                 <div class="col-md-6 col-sm-12 text-center">
-                    <button type="submit" value="btn1" name="btn1" class="btn btn-info btn-m my-1"><i class="la la-paper-plane-o"></i> 
-            Sauvegarder
+                    <button type="submit" value="btn2" name="btn2" class="btn btn-info btn-m my-1"><i class="la la-paper-plane-o"></i> 
+            Confirmer Bon de commande
         </button>
-          <button type="submit" value="btn2" name="btn2" class="btn btn-success btn-m my-1"><i class="la la-check "></i> 
-           confirmer la commande
-        </button>
+          
         <button type="button" class="btn btn-warning btn-m my-1"><i class="la  la-backward"></i> 
             Annuler
         </button>

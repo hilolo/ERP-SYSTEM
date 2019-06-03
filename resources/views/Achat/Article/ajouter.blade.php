@@ -1,4 +1,4 @@
-@extends('layouts.off')
+@extends('layouts.achat')
 
 @section('content')
 <div class="content-header row mb-1">

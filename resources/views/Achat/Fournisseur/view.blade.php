@@ -1,4 +1,4 @@
-@extends('layouts.off')
+@extends('layouts.achat')
 
 @section('content')
 

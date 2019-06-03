@@ -1,4 +1,4 @@
-@extends('layouts.off')
+@extends('layouts.achat')
 
 @section('content')
 <div class="content-header row mb-1">
@@ -47,7 +47,7 @@
            <form class="form form-horizontal form-bordered" method="post"  action="/insertFournisseur" enctype="multipart/form-data">
              {{ csrf_field() }}
                             <div class="form-body">
-                                <h4 class="form-section"><i class="la la-eye"></i> À propos de Client</h4>
+                                <h4 class="form-section"><i class="la la-eye"></i> À propos de Fournisseur</h4>
 
 
                 
@@ -55,7 +55,7 @@
     <div class="col-lg-6">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Type Client</h4>
+            <h4 class="card-title">Type Fournisseur</h4>
             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
          
           </div>

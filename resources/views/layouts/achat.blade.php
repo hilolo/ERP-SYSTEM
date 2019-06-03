@@ -32,8 +32,8 @@
   <!-- END MODERN CSS-->
 
    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/vendors.min.css') }}"">
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/tables/datatable/datatables.min.css') }}"">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/vendors.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
     <!-- END: Vendor CSS-->
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/selects/select2.min.css') }}">
 
@@ -47,6 +47,8 @@
   <!-- END Page Level CSS-->
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+
+ 
   <style type="text/css">
 
   .navbar-dark.navbar-horizontal {
@@ -486,14 +488,16 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
   <script src="{{ asset('app-assets/js/scripts/pages/dashboard-ecommerce.js') }}" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
 
-     <script src="{{ asset('app-assets/vendors/js/ui/jquery.sticky.js') }}"></script>
-       <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('app-assets/vendors/js/charts/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/ui/jquery.sticky.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js') }}" type="text/javascript"></script>
+ <script src="{{ asset('app-assets/vendors/js/charts/jquery.sparkline.min.js') }}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
 
- <script src="{{ asset('app-assets/vendors/js/forms/repeater/jquery.repeater.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/forms/repeater/jquery.repeater.min.js') }}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/form-repeater.min.js') }}"></script>
+
+
 
 
 

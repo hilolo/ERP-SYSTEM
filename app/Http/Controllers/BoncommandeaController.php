@@ -5,27 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Clients;
 use App\Articles;
-use App\Devis;
-use App\Devisarticles;
+ use App\Demandep;
+use App\Devisarticlesa;
 use DB; 
 use DateTime;
 use PDF;
 
-class BoncommandeController extends Controller
+class BoncommandeaController extends Controller
 {
-   
+     
     public function index()
     {
        
-        return view('Boncommande.index');
+        return view('Achat.Boncommande.index');
     }
 
      public function pdf($id)
     {
        
 
-        $art=Devis::find($id);
-    $pdf = PDF::loadView('Boncommande.pdf',compact('art'));
+        $art=Demandep::find($id);
+    $pdf = PDF::loadView('Achat.Boncommande.pdf',compact('art'));
 
         //return $pdf->download('invoice.pdf');
     return $pdf->stream();
@@ -36,22 +36,29 @@ class BoncommandeController extends Controller
 
         public function storeaf()
     {       
-        $filesq = Articles::all();
-        $filesqq = Clients::all()->where('module', 1);
+
+    	$filesq = Articles::all();
+        $filesqq = Clients::all()->where('module', 2);
         
-        if($ar = Devis::latest()->first() == null)
+
+
+        if($ar = Demandep::all()->last() == null)
             {
                 $files="1";
+             
             }
             else
                 {
-           $ar = Devis::latest()->first();
-            $files=$ar->id;
+           $ar =  Demandep::all()->last();
+            
+            $files=($ar->id)+1;
             }
-        
+    	
+           
+
   
 
-        return view('Boncommande.ajouter',compact('files','filesq','filesqq' ));
+        return view('Achat.Boncommande.ajouter',compact('files','filesq','filesqq' ));
 
 
     }
@@ -67,8 +74,8 @@ class BoncommandeController extends Controller
              $users2 = Devis::all();*/
 
              $articles =DB::table('clients')
-             ->join('devis', 'devis.client_id', '=', 'clients.id')
-             ->where('devis.type', '2')
+             ->join('demandep', 'demandep.client_id', '=', 'clients.id')
+             ->where('demandep.type', '2')
              ->get();
               
 
@@ -77,7 +84,7 @@ class BoncommandeController extends Controller
                     return 'SO-0000' . $user->id . '';
                 })
                   ->editColumn('etat', function( $user) {
-                    return 'A factuer';
+                    return 'Commande fournisseur';
                 })
                    ->editColumn('Total', function( $user) {
                     return '' . $user->Total . ' MAD';
@@ -99,15 +106,15 @@ class BoncommandeController extends Controller
                 return '
               <div class="btn-group mr-1 mb-1 text-center">
                        
-                          <a href="/Vente/Boncommande/'. $user->id .'/View"><i class="la la-eye success"></i> </a>
+                          <a href="/Achat/Boncommande/'. $user->id .'/View"><i class="la la-eye success"></i> </a>
                           </div>
 
                  <div class="btn-group mr-1 mb-1 text-center">
-                          <a href="'. route('deletedevis', $user->id) .'"><i class="la la-trash danger"></i> </a>
+                          <a href="'. route('deletedevisprix', $user->id) .'"><i class="la la-trash danger"></i> </a>
                           </div>
 
                             <div class="btn-group mr-1 mb-1 text-center">
-                          <a href="'. route('imprbond', $user->id) .'"><i class="la la-file-text secondary"></i> </a>
+                          <a href="'. route('imprbondprix', $user->id) .'"><i class="la la-file-text secondary"></i> </a>
                           </div>
                         ';
             })
@@ -118,13 +125,12 @@ class BoncommandeController extends Controller
 
       public function View($id)
          {      
-        $art=Devis::find($id);
+        $art=Demandep::find($id);
 
         //a
 
-        return view('Boncommande.view',compact('art'));
+        return view('Achat.Boncommande.view',compact('art'));
         }
-
 
 
 }

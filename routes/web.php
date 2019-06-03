@@ -104,3 +104,26 @@ Route::post('/updateFournisseur/{id}', 'FournisseurController@update');
 Route::post('/SupprimerFournisseur/{id}', 'FournisseurController@destroy')->name('suppc');
 
 
+
+
+Route::get('/Achat/DemandePrix', 'DemandePController@index');
+Route::get('/Achat/AjouterDemandePrix', 'DemandePController@storeaf');
+Route::get('/Achat/DemandePrix/Data', 'DemandePController@data');
+Route::get('/Achat/DemandePrix/{id}/View', 'DemandePController@View');
+Route::get('/Achat/DemandePrix/print/{id}', 'DemandePController@pdf')->name('pdfdvprix');
+
+
+
+
+Route::post('/insertDemandePrix', 'DemandePController@insert');
+Route::post('/updateDemandePrix/{id}', 'DemandePController@updatev');
+Route::get('/updateDemandePrix/{id}', 'DemandePController@updatev')->name('edeetuprix');
+Route::get('/SupprimerDemandePrix/{id}', 'DemandePController@destroy')->name('deletedevisprix');
+
+
+Route::get('/Achat/Boncommande', 'BoncommandeaController@index');
+Route::get('/Achat/AjouterBoncommande', 'BoncommandeaController@storeaf');
+Route::get('/Achat/Devis/Data2', 'BoncommandeaController@data');
+Route::get('/Achat/Boncommande/{id}/View', 'BoncommandeaController@View');
+Route::get('/Achat/Boncommande/print/{id}', 'BoncommandeaController@pdf')->name('imprbondprix');
+

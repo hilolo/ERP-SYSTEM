@@ -15,7 +15,7 @@
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="index.html">Ventes</a>
                   </li>
-                  <li class="breadcrumb-item "><a href="#">Bon de Command</a>
+                  <li class="breadcrumb-item "><a href="#">Devis</a>
                   </li>
                    <li class="breadcrumb-item active"><a href="#"> Ajouter Bon de Command</a>
                   </li>
