@@ -127,3 +127,9 @@ Route::get('/Achat/Devis/Data2', 'BoncommandeaController@data');
 Route::get('/Achat/Boncommande/{id}/View', 'BoncommandeaController@View');
 Route::get('/Achat/Boncommande/print/{id}', 'BoncommandeaController@pdf')->name('imprbondprix');
 
+
+Route::get('/Achat/Factures', 'FactureaController@index');
+Route::get('/Achat/Facture/pdf/{id}', 'FactureaController@pdf');
+Route::get('/Achat/Facture/pdfd/{id}', 'FactureaController@download');
+Route::get('/Achat/Facture/insert/{id}', 'FactureaController@insert')->name('insertfacachat');
+Route::get('/Achat/Facture/Data', 'FactureaController@data');
