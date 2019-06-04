@@ -45,6 +45,12 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/timeline.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/dashboard-ecommerce.css') }}">
   <!-- END Page Level CSS-->
+
+
+  <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/extensions/sweetalert.css') }}">
+
+
+
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 
@@ -79,6 +85,8 @@
 <body class="horizontal-layout horizontal-menu horizontal-menu-padding 2-columns   menu-expanded"
 data-open="click" data-menu="horizontal-menu" data-col="2-columns">
   <!-- fixed-top-->
+
+  @include('sweetalert::alert')
   <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow navbar-static-top navbar-light navbar-brand-center">
     <div class="navbar-wrapper">
       <div class="navbar-header">
@@ -493,6 +501,11 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
  <script src="{{ asset('app-assets/vendors/js/charts/jquery.sparkline.min.js') }}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js') }}" type="text/javascript"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
+
+
+<script src="{{ asset('app-assets/vendors/js/extensions/sweetalert.min.js') }}"></script>
+<script src="{{ asset('app-assets/js/scripts/extensions/sweet-alerts.js') }}"></script>
+
 
 <script src="{{ asset('app-assets/vendors/js/forms/repeater/jquery.repeater.min.js') }}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/form-repeater.min.js') }}"></script>

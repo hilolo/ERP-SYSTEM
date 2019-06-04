@@ -47,6 +47,8 @@ class DemandePController extends Controller
     {
 //dd($request->all());
 
+           alert('Message','Ajouter avec succès', 'success');
+
       if ($request->isMethod('post')){
 
         if($request->btn1 == 'btn1'){
@@ -345,7 +347,7 @@ class DemandePController extends Controller
 
          public function destroy($id)
          {   
-
+            alert('Message','Supprision avec succès', 'success');
          $share = Demandep::find($id);
          $share->delete();
 
@@ -365,6 +367,7 @@ class DemandePController extends Controller
          public function updatev(Request $request,$id)
          {     
 
+                alert('Message','Bon de Commande', 'success');
           $ar= Demandep::find($id);
 
            $dt = new DateTime();

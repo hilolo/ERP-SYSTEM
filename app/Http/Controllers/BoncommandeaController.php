@@ -10,6 +10,7 @@ use App\Devisarticlesa;
 use DB; 
 use DateTime;
 use PDF;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BoncommandeaController extends Controller
 {
@@ -110,7 +111,7 @@ class BoncommandeaController extends Controller
                           </div>
 
                  <div class="btn-group mr-1 mb-1 text-center">
-                          <a href="'. route('deletedevisprix', $user->id) .'"><i class="la la-trash danger"></i> </a>
+                          <a href="'. route('deletedevisprix', $user->id) .'" onclick="return checkDelete()  "  ><i class="la la-trash danger"></i> </a>
                           </div>
 
                             <div class="btn-group mr-1 mb-1 text-center">

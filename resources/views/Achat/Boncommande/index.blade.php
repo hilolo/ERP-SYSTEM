@@ -115,6 +115,14 @@
   
 </script>
 
+</script>
+
+<script language="JavaScript" type="text/javascript">
+function checkDelete(){
+    return confirm('Vous voulez Vraiment you sure?');
+}
+</script>
+
 
 @endsection
 

@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Http\Request;
 use App\Articles;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ArticleaController extends Controller
 {
 
 public function index()
     {
-   
+        
         return view('Achat.Article.index');
     }
 
@@ -35,9 +36,9 @@ public function index()
              
        
                       
-                       <a href="/Achat/' .$user->id. '/ModifierArticle" >  <i class="la la-pencil-square success"></i></a> 
+                       <a href="/Achat/' .$user->id. '/ModifierArticle"  >  <i class="la la-pencil-square success"></i></a> 
                           
-                    <a href="'. route('deleteartac', $user->id) .'"><i class="la la-trash danger"></i> </a>
+                    <a href="'. route('deleteartac', $user->id) .'" onclick="return checkDelete()  " ><i class="la la-trash danger"></i> </a>
                       
                         
 
@@ -79,7 +80,7 @@ public function index()
          public function update(Request $request,$id)
           {
        
-       
+        alert('Message','Modification avec succès', 'success');
        //   dd($request->file('filee'));
           $file = $request->file('filee');
 
@@ -115,6 +116,7 @@ public function index()
     {
       $share = Articles::find($id);
      $share->delete();
+      alert('Message','suppression avec succès', 'success');
 
       return redirect('/Achat/Articles');
      

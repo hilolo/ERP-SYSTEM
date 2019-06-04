@@ -1,6 +1,9 @@
 @extends('layouts.achat')
 
 @section('content')
+
+<a href=" " > </a>
+
 <div class="content-header row mb-1">
           <div class="content-header-left col-md-6 col-12 mb-2">
             <h3 class="content-header-title">Articles</h3>
@@ -108,6 +111,12 @@
            
      
   
+</script>
+
+<script language="JavaScript" type="text/javascript">
+function checkDelete(){
+    return confirm('Vous voulez Vraiment you sure?');
+}
 </script>
 
 @endsection
