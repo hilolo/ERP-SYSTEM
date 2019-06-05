@@ -11,6 +11,7 @@ use App\Devisarticlesa;
 use DB; 
 use DateTime;
 use PDF;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DemandePController extends Controller
 {
@@ -367,7 +368,7 @@ class DemandePController extends Controller
          public function updatev(Request $request,$id)
          {     
 
-                alert('Message','Bon de Commande', 'success');
+         
           $ar= Demandep::find($id);
 
            $dt = new DateTime();
@@ -381,7 +382,8 @@ class DemandePController extends Controller
 
 
              $ar->save();
-        return view('Achat.DemandeP.index');
+              alert('Message','Bon de Commande', 'success');
+        return view('Achat.Boncommande.index');
         }
 
 

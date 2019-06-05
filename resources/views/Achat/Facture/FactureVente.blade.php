@@ -79,7 +79,7 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
             
             <div class="col-md-6 col-sm-12 text-center text-md-left">
                <div class="col-md-6 col-sm-12 ">
-                <h4 class="card-title"> Client : {{ $art->devis->client->name }}</h4>
+                <h4 class="card-title"> Fournisseur : {{ $art->demandep->client->name }}</h4>
              
                   </div>
               
@@ -124,7 +124,7 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
 					    </tr>
 					  </thead>
 					  <tbody>
-					  	   @foreach($art->devis->devisarticle as $ass)
+					  	   @foreach($art->demandep->devisarticlea as $ass)
 						
  
 					    <tr>
@@ -139,19 +139,19 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
 					      <td class="text-left">{{ $ass -> article ->prix  }} MAD</td>
 					      <td class="text-left">
 						@if($ass->article->tva == 1)
-					      	Exonere de TVA VENTES
+					      	Exonere de TVA ACHATS
 					      	@endif
 					      	@if($ass->article->tva == 2)
-					      	 TVA 7% VENTES
+					      	 TVA 7% ACHATS
 					      	@endif
 					      	@if($ass->article->tva == 3)
-					      		 TVA 10% VENTES
+					      		 TVA 10% ACHATS
 					      	@endif
 					      	@if($ass->article->tva == 4)
-					       TVA 17% VENTES
+					       TVA 17% ACHATS
 					      	@endif
 					      	@if($ass->article->tva == 5)
-					      	 TVA 20% VENTES 
+					      	 TVA 20% ACHATS 
 					      	@endif
 					      </td>
 					      <td class="text-left">{{ $ass ->soustotal  }} MAD</td>
@@ -179,15 +179,15 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
 						  <tbody>
 						  	<tr>
 						  		<td> Montant HT</td>
-						  		<td class="text-right"> {{ $art->devis -> Montant  }} MAD </td>
+						  		<td class="text-right"> {{ $art->demandep -> Montant  }} MAD </td>
 						  	</tr>
 						  	<tr>
 						  		<td>Taxes </td>
-						  		<td class="text-right pink">{{ $art->devis -> Taxe  }} MAD</td>
+						  		<td class="text-right pink">{{ $art->demandep -> Taxe  }} MAD</td>
 						  	</tr>
 						  	<tr>
 						  		<td class="text-bold-800">Total</td>
-						  		<td class="text-bold-800 text-right"> {{ $art->devis -> Total  }} MAD</td>
+						  		<td class="text-bold-800 text-right"> {{ $art->demandep -> Total  }} MAD</td>
 						  	</tr>
 						 
 						  </tbody>

@@ -139,19 +139,19 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns" >
                           <td class="text-left">{{ $ass -> article ->prix  }} MAD</td>
                           <td class="text-left">
                         @if($ass->article->tva == 1)
-                            Exonere de TVA VENTES
+                            Exonere de TVA ACHATS
                             @endif
                             @if($ass->article->tva == 2)
-                             TVA 7% VENTES
+                             TVA 7% ACHATS
                             @endif
                             @if($ass->article->tva == 3)
-                                 TVA 10% VENTES
+                                 TVA 10% ACHATS
                             @endif
                             @if($ass->article->tva == 4)
-                           TVA 17% VENTES
+                           TVA 17% ACHATS
                             @endif
                             @if($ass->article->tva == 5)
-                             TVA 20% VENTES 
+                             TVA 20% ACHATS 
                             @endif
                           </td>
                           <td class="text-left">{{ $ass ->soustotal  }} MAD</td>

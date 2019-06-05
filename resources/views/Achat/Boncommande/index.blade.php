@@ -51,7 +51,7 @@
                                     <thead>
                                         <tr>
                                         <td>N° de devis</td>
-                                        <td >Date du Confirmation</td>
+                                        <td >Date </td>
                                         <td>Client</td>
                                         <td>Total</td>
                                         <td>status</td>

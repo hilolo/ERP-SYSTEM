@@ -1,4 +1,4 @@
-@extends('layouts.off')
+@extends('layouts.achat')
 
 @section('content')
 <div class="content-header row mb-1">
@@ -7,7 +7,7 @@
             <div class="row breadcrumbs-top">
               <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html">Ventes</a>
+                  <li class="breadcrumb-item"><a href="index.html">Achat</a>
                   </li>
                   <li class="breadcrumb-item active"><a href="#">Les Facture</a>
                   </li>
@@ -48,7 +48,7 @@
                                         <tr>
                                         <td>N° de Facture</td>
                                         <td >Date du Facturation</td>
-                                        <td>Client</td>
+                                        <td>Fournisseur</td>
                                         <td>Document origin</td>
                                          <td>Action</td>
                                         </tr>
@@ -84,7 +84,7 @@
                             ,processing: false,
             serverSide: true,
               "order": [[ 0, "desc" ]],
-            ajax: 'http://erp.test/Vente/Facture/Data',
+            ajax: 'http://erp.test/Achat/Facture/Data',
             "pageLength": 50,
              columns: [
             {data: 'number'},

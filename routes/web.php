@@ -106,6 +106,8 @@ Route::post('/SupprimerFournisseur/{id}', 'FournisseurController@destroy')->name
 
 
 
+
+
 Route::get('/Achat/DemandePrix', 'DemandePController@index');
 Route::get('/Achat/AjouterDemandePrix', 'DemandePController@storeaf');
 Route::get('/Achat/DemandePrix/Data', 'DemandePController@data');

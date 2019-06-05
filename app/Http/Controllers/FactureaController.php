@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Clients;
 use App\Articles;
-use App\Devis;
-use App\Devisarticles;
-use App\Facturesv;
+use App\Demandep;
+
+use App\Facturea;
 use DateTime;
 use DB;
 use PDF;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FactureaController extends Controller
 {
@@ -20,8 +21,8 @@ class FactureaController extends Controller
       public function index()
     {
         
-  
-        return view('Facture.index');
+        
+        return view('Achat.Facture.index');
     }
 
 
@@ -29,8 +30,8 @@ class FactureaController extends Controller
     {
         
     
-        $art=Facturesv::find($id);
-    $pdf = PDF::loadView('Facture.FactureVente',compact('art'));
+        $art=Facturea::find($id);
+    $pdf = PDF::loadView('Achat.Facture.FactureVente',compact('art'));
 
       return $pdf->download( 'FAC|00' .$art->number . '|'.$art->year .'.pdf');
       
@@ -41,8 +42,8 @@ class FactureaController extends Controller
     	
 
 
-        $art=Facturesv::find($id);
-    $pdf = PDF::loadView('Facture.FactureVente',compact('art'));
+        $art=Facturea::find($id);
+    $pdf = PDF::loadView('Achat.Facture.FactureVente',compact('art'));
 
         //return $pdf->download('invoice.pdf');
     return $pdf->stream();
@@ -56,13 +57,13 @@ class FactureaController extends Controller
     		{
        
       
-    		
+    		  
 
         	$dt = new DateTime();
         	$year=$dt->format("Y");
         
         
-        	$users = DB::table('facturesv')->Orderby('created_at', 'desc')
+        	$users = DB::table('facturea')->Orderby('created_at', 'desc')
         	->where('year',$year)
         	->limit(1)->get();
         	if($users->isEmpty()){
@@ -72,19 +73,21 @@ class FactureaController extends Controller
         	else {	$number=$users[0]->number+1;}
 
 
-        	$arRRR= new Facturesv();
+        	$arRRR= new Facturea();
         	$arRRR->year=$year;
  			$arRRR->number=$number;
- 			$arRRR->devis_id=$id;
+ 			$arRRR->demandep_id=$id;
  			$arRRR->date_facture=$dt->format('Y-m-d H:i:s');
  			 $arRRR->save();
 
- 			$xx= Devis::find($id);
+ 			$xx= Demandep::find($id);
  			$xx->type='3';
             $xx->etat='done';
             $xx->save();
 
-              return view('Facture.index');
+
+             alert('Message','Nouveau Facture Ajouter', 'success');
+              return view('Achat.Facture.index');
 
         
      
@@ -98,18 +101,18 @@ class FactureaController extends Controller
              /*$users = Devis::select(['id', 'type', 'condition_paiment','Total'])->where('type', '=', '0');
              $users2 = Devis::all();*/
 
-              $articles =DB::table('facturesv')
-             ->join('devis', 'devis.id', '=', 'facturesv.devis_id')
-             ->join('clients', 'clients.id', '=', 'devis.client_id')
-             ->where('devis.type', '3')
-             ->select('facturesv.id AS tag_name', 'facturesv.*','clients.*','devis.*')
+              $articles =DB::table('facturea')
+             ->join('demandep', 'demandep.id', '=', 'facturea.demandep_id')
+             ->join('clients', 'clients.id', '=', 'demandep.client_id')
+             ->where('demandep.type', '3')
+             ->select('facturea.id AS tag_name', 'facturea.*','clients.*','demandep.*')
 
              ->get();
               
 
                       return datatables()->of( $articles)
                 ->editColumn('id', function( $user) {
-                    return 'SO-0000' . $user->id . '';
+                    return 'PO-0000' . $user->id . '';
                 })
                  ->editColumn('number', function( $user) {
                     return 'FAC/00' . $user->number . '/' . $user->year  . '';
@@ -119,10 +122,10 @@ class FactureaController extends Controller
                 return '
               <div class="btn-group mr-1 mb-1 text-center">
                        
-                          <a href="/Vente/Facture/pdf/'. $user->tag_name .'"><i class="la la-eye success"></i> </a>
+                          <a href="/Achat/Facture/pdf/'. $user->tag_name .'"><i class="la la-eye success"></i> </a>
                         </div> 
                            <div class="btn-group mr-1 mb-1 text-center">
-                          <a href="/Vente/Facture/pdfd/'. $user->tag_name .'"><i class="la la-download  info"></i> </a>
+                          <a href="/Achat/Facture/pdfd/'. $user->tag_name .'"><i class="la la-download  info"></i> </a>
                           </div> 
 
 

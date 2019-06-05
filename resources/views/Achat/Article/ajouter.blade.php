@@ -118,19 +118,19 @@
                                         <div class="form-group">
                                             <select class="form-control" id="trans-type" name="tva">
                                                 <option value="1">
-                                                    Exonere de TVA VENTES
+                                                    Exonere de TVA ACHATS
                                                 </option>
                                                 <option value="2">
-                                                   TVA 7% VENTES
+                                                   TVA 7% ACHATS
                                                 </option>
                                                  <option value="3">
-                                                   TVA 10% VENTES
+                                                   TVA 10% ACHATS
                                                 </option>
                                                  <option value="4">
-                                                   TVA 17% VENTES
+                                                   TVA 17% ACHATS
                                                 </option>
                                                  <option value="5">
-                                                   TVA 20% VENTES
+                                                   TVA 20% ACHATS
                                                 </option>
 
                                             </select>
