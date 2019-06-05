@@ -135,3 +135,10 @@ Route::get('/Achat/Facture/pdf/{id}', 'FactureaController@pdf');
 Route::get('/Achat/Facture/pdfd/{id}', 'FactureaController@download');
 Route::get('/Achat/Facture/insert/{id}', 'FactureaController@insert')->name('insertfacachat');
 Route::get('/Achat/Facture/Data', 'FactureaController@data');
+
+
+Route::get('/Admin', 'AdminstrateurController@index');
+Route::get('/Admin/EditSocieter', 'AdminstrateurController@storeaf');
+Route::get('/Admin/Users/Data', 'AdminstrateurController@data');
+
+Route::post('/insertentreprise', 'AdminstrateurController@insert');
