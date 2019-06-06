@@ -16,6 +16,14 @@ class AdminstrateurController extends Controller
         return view('Admin.Users.index',compact('art'));
     }
    
+     
+
+       public function treeview()
+    {
+       $art = User::all()->where('type','2');
+        return view('Admin.Users.treeview',compact('art'));
+    }
+
 
      public function updateaf($id)
     {
@@ -33,8 +41,60 @@ class AdminstrateurController extends Controller
       public function mmodiferuser($id)
     {
         $art=User::find($id);
-        return view('Admin.Users.ajouteruser',compact('art'));
+        return view('Admin.Users.modifieruser',compact('art'));
     }
+
+     public function destroy($id)
+    {
+
+        $art=User::find($id);
+        $art->delete();
+       alert('Message',' Utilisateur a etait Supprimer avec succès', 'success');
+           return redirect('/Admin');
+    }
+
+     public function updateuser(Request $request,$id)
+    {
+
+
+      
+
+           
+            $ar=User::find($id);
+        
+            $ar->name=$request->input('name');
+            $ar->email=$request->input('email');
+
+
+            $ar->password=Hash::make($request->input('password'));
+             $ar->type='2';
+             if($request->input('Vente') == '1')
+            $ar->Vente=$request->input('Vente');
+          else  $ar->Vente='0';
+
+             if($request->input('Achat') == '1')
+             $ar->Achat=$request->input('Achat');
+          else  $ar->Achat='0';
+
+              if($request->input('Comptable') == '1')
+              $ar->Comptable=$request->input('Comptable');
+          else  $ar->Comptable='0';
+
+           
+           
+             $ar->save();
+
+         
+
+        alert('Message',' Utilisateur a etait Modifier avec succès', 'success');
+           return redirect('/Admin');
+
+
+
+      
+    }
+
+
 
     public function insertuser(Request $request)
     {
@@ -106,6 +166,7 @@ class AdminstrateurController extends Controller
           }
 
             $ar->save();
+             alert('Message',' Les Information de Votre Entreprise sont Modifier avec succès', 'success');
             return redirect('/Admin');
         
     }
@@ -146,9 +207,9 @@ class AdminstrateurController extends Controller
              
        
                       
-                       <a href="/Vente/' .$user->id . '/ModifierArticle" >  <i class="la la-pencil-square success"></i></a> 
+                       <a href="/Admin/' .$user->id . '/Modiferuser" >  <i class="la la-pencil-square success"></i></a> 
                           
-                    <a href="'. $user->id .'"><i class="la la-trash danger"></i> </a>
+                    <a href="'. route('suppuser', $user->id) .'" onclick="return checkDelete()  " ><i class="la la-trash danger"></i> </a>
                       
                         
 

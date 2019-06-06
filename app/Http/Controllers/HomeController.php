@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,16 +25,32 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+       // dd(auth()->user()->Achat);
+
+        if(auth()->user()->type == '1'){
+        return redirect('/Admin');
+        }
+    
+    if(auth()->user()->Vente == '1'){
+        return redirect('/Vente/Articles');
+        }
+
+     if(auth()->user()->Achat == '1'){
+        return redirect('/Achat/Articles');
+        }
+
+
+     if(auth()->user()->Comptable == '1'){
+        return redirect('/Admin');
+        }
+
+
+        
+
+
     }
-      public function index2()
-    {
-        return view('admin.index');
-    }
-       public function login()
-    {
-        return view('admin.login');
-    }
+ 
 
 
 }

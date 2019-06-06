@@ -430,12 +430,31 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
                     <div class="col-12">
                     <div class="form-group text-center">
                   <!-- Floating button Regular with text -->
+                      @guest
+                           
+                        @else
+                        
+
+
+                  @if(Auth::user()->Achat == "1")
+                  
+                  <!-- Floating button Regular with text -->
                   <a href="#" class="btn btn-float btn-float-lg btn-cyan moduless"><i class="la la-search"></i><span>Achat   </span></a>
+                  @endif 
+
+                   @if(Auth::user()->Vente == "1")
                   <a href="#" class="btn btn-float btn-float-lg  btn-pink moduless "><i class="la ft-trending-down"></i><span>Vente</span></a>
+                  @endif
+
+                  @if(Auth::user()->Comptable == "1")
+                  <a href="#" class="btn btn-float btn-float-lg btn-amber moduless" ><i class="la ft-file-text"></i><span>Comptable</span></a>
+                   @endif
+
                    <a href="#" class="btn btn-float btn-float-lg  btn-yellow moduless"><i class="la la-refresh"></i><span>Stock</span></a>
-                    <a href="#" class="btn btn-float btn-float-lg btn-amber moduless" ><i class="la ft-file-text"></i><span>Comptable</span></a>
+                    
                      <a href="#" class="btn btn-float btn-float-lg btn-deep-orange moduless"><i class="la la-users"></i><span>CRM</span></a>
 
+                       @endguest
 
                 </div>
                   </div>

@@ -6,14 +6,24 @@ use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Http\Request;
 use App\Articles;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleaController extends Controller
 {
 
+  
+/*
+public function __construct()
+  {
+       $this->middleware('auth');
+}*/
+
+
 public function index()
     {
-        
+        if(auth()->user()->Achat == '1'){
         return view('Achat.Article.index');
+      }else   return redirect('/home');
     }
 
 

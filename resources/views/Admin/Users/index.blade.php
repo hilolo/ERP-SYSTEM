@@ -69,26 +69,8 @@
 </section>
 
 
-deleted
-<section id="tree-examples">
 
-    <div class="row match-height">
-        <!-- Default Treeview -->
-        <div class="col-md-6 col-sm-6">
-            <div class="card" style="height: 694px;">
-                <div class="card-header">
-                    <h4 class="card-title">Default</h4>
-                </div>
-                <div class="card-body">
-                    <div class="card-body">
-                        <div id="default-treeview" class="treeview"><ul class="list-group"><li class="list-group-item node-default-treeview node-selected" data-nodeid="0" style="color:#FFFFFF;background-color:#428bca;"><span class="icon expand-icon ft-minus"></span><span class="icon node-icon"></span>Parent 1</li><li class="list-group-item node-default-treeview" data-nodeid="1" ><span class="indent"></span><span class="icon expand-icon ft-plus"></span><span class="icon node-icon"></span>Child 1</li><li class="list-group-item node-default-treeview" data-nodeid="4" style="color:undefined;background-color:undefined;"><span class="indent"></span><span class="icon"></span><span class="icon node-icon"></span>Child 2</li><li class="list-group-item node-default-treeview" data-nodeid="5" style="color:undefined;background-color:undefined;"><span class="icon"></span><span class="icon node-icon"></span>Parent 2</li><li class="list-group-item node-default-treeview" data-nodeid="6" style="color:undefined;background-color:undefined;"><span class="icon"></span><span class="icon node-icon"></span>Parent 3</li><li class="list-group-item node-default-treeview" data-nodeid="7" style="color:undefined;background-color:undefined;"><span class="icon"></span><span class="icon node-icon"></span>Parent 4</li><li class="list-group-item node-default-treeview" data-nodeid="8" style="color:undefined;background-color:undefined;"><span class="icon"></span><span class="icon node-icon"></span>Parent 5</li></ul></div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-     
-</section>
 
 
 
@@ -126,6 +108,15 @@ deleted
      
   
 </script>
+
+</script>
+
+<script language="JavaScript" type="text/javascript">
+function checkDelete(){
+    return confirm('Vous voulez Vraiment you sure?');
+}
+</script>
+
 
 @endsection
 

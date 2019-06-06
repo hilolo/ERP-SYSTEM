@@ -217,12 +217,12 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
       <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
        
       
-        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"></i><span>Informations de  entreprise</span></a>
+        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"></i><span>Informations de  entreprise / utilisateurs </span></a>
           
         </li>
 
 
-        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"></i><span> Gérer les droits d'accès </span></a>
+        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"></i><span>  Les droits d'accès des utilisateurs </span></a>
         
         </li>
        
@@ -259,6 +259,8 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
 <div class="row">
                     <div class="col-12">
                     <div class="form-group text-center">
+
+                      
                   <!-- Floating button Regular with text -->
                   <a href="#" class="btn btn-float btn-float-lg btn-cyan moduless"><i class="la la-search"></i><span>Achat   </span></a>
                   <a href="#" class="btn btn-float btn-float-lg  btn-pink moduless "><i class="la ft-trending-down"></i><span>Vente</span></a>

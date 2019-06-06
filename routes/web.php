@@ -143,4 +143,9 @@ Route::get('/Admin/Users/Data', 'AdminstrateurController@data');
 Route::post('/updateentreprise', 'AdminstrateurController@update');
 
 Route::get('/Admin/AjouterUser', 'AdminstrateurController@ajouteruser');
+Route::get('/Admin/{id}/Modiferuser', 'AdminstrateurController@mmodiferuser');
+Route::get('/Admin/treeview', 'AdminstrateurController@treeview');
+
 Route::post('/ajouteruser', 'AdminstrateurController@insertuser');
+Route::post('/updateuser/{id}', 'AdminstrateurController@updateuser');
+Route::get('/supprimeruser/{id}', 'AdminstrateurController@destroy')->name('suppuser');
