@@ -18,8 +18,20 @@ class DevisController extends Controller
     {
     	
 
-    	
+          public function __construct()
+    {
+        $this->middleware('auth');
+}
+
+
+
+    	if(auth()->user()->Vente == '1'){
         return view('Devis.index');
+          }else   
+      {
+
+      return redirect('/home2');
+      }
     }
 
 

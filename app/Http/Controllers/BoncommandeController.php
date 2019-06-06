@@ -14,10 +14,20 @@ use PDF;
 class BoncommandeController extends Controller
 {
    
+     public function __construct()
+    {
+        $this->middleware('auth');
+}
+
+
     public function index()
     {
-       
+         if(auth()->user()->Vente == '1'){
         return view('Boncommande.index');
+        }else   
+         {
+       return redirect('/home2');
+          }
     }
 
      public function pdf($id)

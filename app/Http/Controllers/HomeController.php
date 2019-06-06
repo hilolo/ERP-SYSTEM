@@ -58,23 +58,23 @@ class HomeController extends Controller
        // dd(auth()->user()->Achat);
 
         if(auth()->user()->type == '1'){
-             Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module admin');
+             Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module ');
         return redirect('/Admin');
         }
     
     if(auth()->user()->Vente == '1'){
-         Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module Vente');
+         Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module ');
         return redirect('/Vente/Articles');
         }
 
      if(auth()->user()->Achat == '1'){
-         Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module Achat');
+         Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module ');
         return redirect('/Achat/Articles');
         }
 
 
      if(auth()->user()->Comptable == '1'){
-         Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module Comptabilité');
+         Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module ');
         return redirect('/Admin');
         }
 

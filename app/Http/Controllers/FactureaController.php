@@ -17,12 +17,23 @@ class FactureaController extends Controller
 {
     //
 
+
+  public function __construct()
+    {
+        $this->middleware('auth');
+}
    
       public function index()
     {
         
-        
+        if(auth()->user()->Achat == '1'){
         return view('Achat.Facture.index');
+          }else   
+      {
+
+  
+      return redirect('/home2');
+      }
     }
 
 

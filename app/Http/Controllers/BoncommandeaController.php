@@ -14,11 +14,25 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class BoncommandeaController extends Controller
 {
-     
+       public function __construct()
+    {
+        $this->middleware('auth');
+}
+
     public function index()
     {
-       
+
+
+        if(auth()->user()->Achat == '1'){
         return view('Achat.Boncommande.index');
+          }else   
+      {
+
+  
+      return redirect('/home2');
+      }
+
+      
     }
 
      public function pdf($id)

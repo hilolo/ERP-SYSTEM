@@ -8,10 +8,26 @@ use App\Clients;
 
 class ClientsController extends Controller
 {
+
+  public function __construct()
+    {
+        $this->middleware('auth');
+}
+
+  
       public function index()
     {
+
+      if(auth()->user()->Vente == '1'){
       $files = Clients::orderBy('created_at','DESC')->where('module', 1)->paginate(30);
         return view('Clients.index',['Clients' => $files]);
+          }else   
+      {
+
+  
+      return redirect('/home2');
+      }
+      
     }
       public function insert(Request $request)
     {

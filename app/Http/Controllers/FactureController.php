@@ -15,11 +15,24 @@ use PDF;
 class FactureController extends Controller
 {
    
+
+
+     public function __construct()
+    {
+        $this->middleware('auth');
+}
+
       public function index()
     {
         
-  
+      if(auth()->user()->Vente == '1'){
         return view('Facture.index');
+          }else   
+      {
+
+  
+      return redirect('/home2');
+      }
     }
 
 
