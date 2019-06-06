@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Http\Request;
 use App\Articles;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class ArticleController extends Controller
 {
      public function index()
     {
    
-
+       
       
         return view('Article.index');
     }

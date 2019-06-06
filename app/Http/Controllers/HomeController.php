@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -42,6 +43,38 @@ class HomeController extends Controller
 
 
      if(auth()->user()->Comptable == '1'){
+        return redirect('/Admin');
+        }
+
+
+        
+
+
+    }
+
+    public function rejected()
+    {
+
+       // dd(auth()->user()->Achat);
+
+        if(auth()->user()->type == '1'){
+             Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module admin');
+        return redirect('/Admin');
+        }
+    
+    if(auth()->user()->Vente == '1'){
+         Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module Vente');
+        return redirect('/Vente/Articles');
+        }
+
+     if(auth()->user()->Achat == '1'){
+         Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module Achat');
+        return redirect('/Achat/Articles');
+        }
+
+
+     if(auth()->user()->Comptable == '1'){
+         Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module Comptabilité');
         return redirect('/Admin');
         }
 

@@ -23,7 +23,13 @@ public function index()
     {
         if(auth()->user()->Achat == '1'){
         return view('Achat.Article.index');
-      }else   return redirect('/home');
+      }else   
+      {
+
+      
+
+      return redirect('/home2');
+      }
     }
 
 

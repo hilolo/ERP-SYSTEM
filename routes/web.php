@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home2', 'HomeController@rejected');
 Route::get('/Vente', 'HomeController@index2')->name('home2');
 Route::get('/loginn', 'HomeController@login')->name('loginn');
 

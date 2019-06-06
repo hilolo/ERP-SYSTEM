@@ -76,6 +76,8 @@
 
 <body class="horizontal-layout horizontal-menu horizontal-menu-padding 2-columns   menu-expanded"
 data-open="click" data-menu="horizontal-menu" data-col="2-columns">
+
+  @include('sweetalert::alert')
   <!-- fixed-top-->
   <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow navbar-static-top navbar-light navbar-brand-center">
     <div class="navbar-wrapper">
