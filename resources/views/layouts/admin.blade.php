@@ -106,7 +106,7 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
       <div class="navbar-container container center-layout">
         <div class="collapse navbar-collapse" id="navbar-mobile">
           <ul class="nav navbar-nav mr-auto float-left">
-            <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" data-toggle="modal" data-target="#exampleModal" href="#"><i class="ft-menu"></i></a></li>
+            
            
            
          

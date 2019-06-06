@@ -39,7 +39,7 @@
                         <a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right white" href="/Vente/AjouterArticle">
                             <i class="ft-plus white"></i>Nouveau Article
                         </a>
-                    </div>
+          </div>
      
 
                  <div class="card-content collapse show">

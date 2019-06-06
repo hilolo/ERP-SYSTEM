@@ -138,7 +138,9 @@ Route::get('/Achat/Facture/Data', 'FactureaController@data');
 
 
 Route::get('/Admin', 'AdminstrateurController@index');
-Route::get('/Admin/EditSocieter', 'AdminstrateurController@storeaf');
+Route::get('/Admin/EditSocieter/{id}', 'AdminstrateurController@updateaf');
 Route::get('/Admin/Users/Data', 'AdminstrateurController@data');
+Route::post('/updateentreprise', 'AdminstrateurController@update');
 
-Route::post('/insertentreprise', 'AdminstrateurController@insert');
+Route::get('/Admin/AjouterUser', 'AdminstrateurController@ajouteruser');
+Route::post('/ajouteruser', 'AdminstrateurController@insertuser');

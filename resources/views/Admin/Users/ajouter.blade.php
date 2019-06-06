@@ -53,34 +53,34 @@
             <div class="card-text">
        
             </div>
-                        <form class="form form-horizontal form-bordered" method="post"  action="/insertentreprise" enctype="multipart/form-data">
-             {{ csrf_field() }}
+              <form class="form form-horizontal form-bordered" method="post"  action="/updateentreprise" enctype="multipart/form-data">
+               <input type="hidden" name="_token" value="{{ csrf_token() }}">  
                         <div class="form-body">
                           <h4 class="form-section"><i class="ft-user"></i> Entreprise Info</h4>
                           <div class="form-group row">
                                 <label class="col-md-3 label-control" for="projectinput1">Nom de la société</label>
                                 <div class="col-md-9 mx-auto">
-                                  <input type="text" id="projectinput1" class="form-control" placeholder="First Name" name="name">
+                                  <input type="text" id="projectinput1" value="{{ $art->name }}" class="form-control" placeholder="First Name" name="name">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="projectinput2"> Adresse</label>
                   <div class="col-md-9 mx-auto">
-                                  <input type="text" id="projectinput2" class="form-control" placeholder="Rue" name="rue">
+                                  <input type="text" id="projectinput2" value="{{ $art->rue }}" class="form-control" placeholder="Rue" name="rue">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="projectinput3"></label>
                                 <div class="col-md-9 mx-auto">
-                                  <input type="text" id="projectinput3" class="form-control" placeholder="Ville" name="ville">
+                                  <input type="text" id="projectinput3" value="{{ $art->ville }}" class="form-control" placeholder="Ville" name="ville">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="projectinput4"> </label>
                                 <div class="col-md-9 mx-auto">
-                                  <input type="text" id="projectinput4" class="form-control" placeholder="Code Postal" name="postal">
+                                  <input type="text" id="projectinput4" value="{{ $art->postal }}" class="form-control" placeholder="Code Postal" name="postal">
                                 </div>
                             </div>
 
@@ -91,28 +91,28 @@
                             <div class="form-group row">
                   <label class="col-md-3 label-control" for="projectinput5">Site Web  </label>
                   <div class="col-md-9 mx-auto">
-                                  <input type="text" id="projectinput5" class="form-control" name="siteweb">
+                                  <input type="text" id="projectinput5" value="{{ $art->Site_web }}" class="form-control" name="siteweb">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                   <label class="col-md-3 label-control" for="projectinput5">Téléphone</label>
                   <div class="col-md-9 mx-auto">
-                                  <input type="text" id="projectinput5" class="form-control"  name="tele">
+                                  <input type="text" id="projectinput5" value="{{ $art->Telephone }}" class="form-control"  name="tele">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                   <label class="col-md-3 label-control" for="projectinput5">Courriel</label>
                   <div class="col-md-9 mx-auto">
-                                  <input type="text" id="projectinput5" class="form-control"  name="email">
+                                  <input type="text" id="projectinput5" value="{{ $art->email }}"  class="form-control"  name="email">
                                 </div>
                             </div>
 
                               <div class="form-group row">
                   <label class="col-md-3 label-control" for="projectinput5">N° TVA</label>
                   <div class="col-md-9 mx-auto">
-                                  <input type="text" id="projectinput5" class="form-control"name="ntva">
+                                  <input type="text" id="projectinput5" value="{{ $art->NTVA }}"  class="form-control"name="ntva">
                                 </div>
                             </div>
 

@@ -5,36 +5,89 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Entreprise;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminstrateurController extends Controller
 {
     public function index()
     {
         
-        //treee Users
-        return view('Admin.Users.index');
+        $art=Entreprise::find('1');
+        return view('Admin.Users.index',compact('art'));
     }
-     public function storeaf()
-    {
-        
-        return view('Admin.Users.ajouter');
-    }
+   
 
      public function updateaf($id)
     {
     	$art=Entreprise::find($id);
         return view('Admin.Users.ajouter',compact('art'));
     }
-   
 
-     public function insert(Request $request)
+    public function ajouteruser()
+    {
+     
+        return view('Admin.Users.ajouteruser');
+    }
+
+
+      public function mmodiferuser($id)
+    {
+        $art=User::find($id);
+        return view('Admin.Users.ajouteruser',compact('art'));
+    }
+
+    public function insertuser(Request $request)
+    {
+
+
+      
+
+            $ar= new User();
+        
+            $ar->name=$request->input('name');
+            $ar->email=$request->input('email');
+
+
+            $ar->password=Hash::make($request->input('password'));
+             $ar->type='2';
+             if($request->input('Vente') == '1')
+            $ar->Vente=$request->input('Vente');
+          else  $ar->Vente='0';
+
+             if($request->input('Achat') == '1')
+             $ar->Achat=$request->input('Achat');
+          else  $ar->Achat='0';
+
+              if($request->input('Comptable') == '1')
+              $ar->Comptable=$request->input('Comptable');
+          else  $ar->Comptable='0';
+
+           
+           
+             $ar->save();
+
+         
+
+        alert('Message','Nouveau Utilisateur a etait ajouté avec succès', 'success');
+           return redirect('/Admin');
+
+
+
+      
+    }
+
+
+     public function update(Request $request)
     {
        
        
         	$file = $request->file('filee');
 
-           // $ar= Entreprise::find($id);
-                $ar= new Entreprise();
+
+
+           
+            $ar=  Entreprise::find('1');
+           
            
  			$ar->name=$request->input('name');
 
@@ -60,19 +113,42 @@ class AdminstrateurController extends Controller
   
    public function data()
         {
-            $users = User::all();
+            $users = User::all()->where('type','2');
 
 
       return datatables()->of( $users)
         ->addColumn('action', function ($user) {
+            $p='';$pr='';$pq='';
+
+          if($user->Vente == '1'){
+              $p='<span class="badge badge-warning mb-1">Vente</span>';
+          }
+          if($user->Achat == '1'){
+              $pr=' <span class="badge badge-success mb-1">Achat</span>';
+          }
+          if($user->Comptable  == '1'){
+              $pq='  <span class="badge badge-info mb-1">Comptable</span>';
+          }
+
+
+                return '                    
+                     ' .  $p  . '
+                     
+                      ' .  $pr  . '
+
+                       ' .  $pq  . '
+                     
+                        ';
+            })
+        ->addColumn('action2', function ($user) {
                 return '
 
              
        
                       
-                       <a href="/Achat/' .$user->id. '/ModifierArticle"  >  <i class="la la-pencil-square success"></i></a> 
+                       <a href="/Vente/' .$user->id . '/ModifierArticle" >  <i class="la la-pencil-square success"></i></a> 
                           
-                    <a href="'. route('deleteartac', $user->id) .'" onclick="return checkDelete()  " ><i class="la la-trash danger"></i> </a>
+                    <a href="'. $user->id .'"><i class="la la-trash danger"></i> </a>
                       
                         
 
@@ -80,6 +156,7 @@ class AdminstrateurController extends Controller
 
                         ';
             })
+            ->rawColumns(['action' => 'action2','action2' => 'action2'])   
 
      ->make(true);
         }
