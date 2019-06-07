@@ -25,7 +25,7 @@ Route::get('/loginn', 'HomeController@login')->name('loginn');
 
 
 
-///////////////////////////////
+/////////////////////////////// Ventte
 Route::get('/Vente/Clients', 'ClientsController@index');
 Route::get('/Vente/{id}/View', 'ClientsController@View');
 Route::get('/Vente/AjouterClient', 'ClientsController@storeaf');
@@ -80,7 +80,7 @@ Route::get('/Vente/Facture/insert/{id}', 'FactureController@insert')->name('inse
 Route::get('/Vente/Facture/Data', 'FactureController@data');
 
 
-///////////////////////////////////////////
+///////////////////////////////////////////Achat
 
 
 Route::get('/Achat/Articles', 'ArticleaController@index');
@@ -151,3 +151,19 @@ Route::get('/Admin/treeview', 'AdminstrateurController@treeview');
 Route::post('/ajouteruser', 'AdminstrateurController@insertuser');
 Route::post('/updateuser/{id}', 'AdminstrateurController@updateuser');
 Route::get('/supprimeruser/{id}', 'AdminstrateurController@destroy')->name('suppuser');
+
+
+// Comptabilite
+
+
+Route::get('/Comptabilite/Piècescomptables', 'PiecesController@index');
+Route::get('/Comptabilite/Piècescomptables/AjouterPiéces', 'PiecesController@storeaf');
+Route::get('/Comptabilite/Piècescomptables/Data', 'PiecesController@data');
+Route::get('/Comptabilite/Piècescomptables/{id}/View', 'PiecesController@View');
+
+
+
+
+Route::post('/insertpieces', 'PiecesController@insert');
+Route::post('/updatepieces/{id}', 'PiecesController@updatev');
+Route::get('/Supprimerpieces/{id}', 'PiecesController@destroy')->name('deletepiece');

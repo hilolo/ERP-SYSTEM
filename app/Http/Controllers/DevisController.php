@@ -14,9 +14,6 @@ use PDF;
 
 class DevisController extends Controller
 {
-   public function index()
-    {
-    	
 
           public function __construct()
     {
@@ -25,6 +22,9 @@ class DevisController extends Controller
 
 
 
+   public function index()
+    {
+    	
     	if(auth()->user()->Vente == '1'){
         return view('Devis.index');
           }else   

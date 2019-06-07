@@ -27,7 +27,6 @@ class HomeController extends Controller
     public function index()
     {
 
-       // dd(auth()->user()->Achat);
 
         if(auth()->user()->type == '1'){
         return redirect('/Admin');
