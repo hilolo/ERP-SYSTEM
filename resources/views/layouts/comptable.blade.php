@@ -78,6 +78,12 @@
     font-size: 0.8rem;
 }
 
+body {
+    min-height: 100vh;
+    width: 100%; // probably you won't need the width.
+}
+
+
 </style>
   <!-- END Custom CSS-->
 </head>

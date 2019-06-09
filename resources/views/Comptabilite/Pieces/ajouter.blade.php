@@ -60,13 +60,11 @@
     <div id="invoice-template"  class="card-body">
         <!-- Invoice Company Details -->
         <div id="invoice-company-details" class="row">
-            <div class="col-md-6 col-sm-12 text-center text-md-left">
-             
-            </div>
-            <div class="col-md-6 col-sm-12 text-center text-md-right">
-                <h2>Devis</h2>
+           
+            <div class="col-md-12 col-sm-12 text-center text-center">
+                <h2>Pièces comptables</h2>
    
-                <p class="pb-3"># SO-0000{{ $files }}</p>
+             
               
 
             </div>
@@ -84,14 +82,19 @@
                          
         
           <div class="input-append date form_datetime">
-    <input size="16" type="text"  class="form-control datetimepicker-input" required=""  value="" readonly>
+    <input size="16" type="text"  class="form-control datetimepicker-input" name="datee" required=""  value="" readonly>
     <span class="add-on"><i class="icon-th"></i></span>
 </div>
   
 
                         </div>
+
+
                   </div>
               
+
+
+
             </div>
             <div class="col-md-6 col-sm-12 text-center text-md-right">
               
@@ -117,6 +120,23 @@
                           
                
             </div>
+<div class="col-md-6 col-sm-12 text-center text-md-right">  </div>
+             <div class="col-md-6 col-sm-12 text-center text-md-right">
+              
+             <div class="col-md-6 pull-right">
+                            <div class="form-group">
+                             <h4 class="card-title" style="    text-align: left;"> Référence</h4>
+                                 <div class="form-group">
+                 
+                  <input type="text" id="companyName" class="form-control" placeholder="Référence" name="ref">
+                </div>
+
+                            </div>
+                             
+                          </div>
+                           
+            </div>
+
         </div>
         <!--/ Invoice Customer Details -->
 
@@ -146,11 +166,11 @@
                           <td style="width:30%" >
                          
 
-              <select class="js-example-basic-single select2 form-control" onchange="getval(this);"   id="countries2" name="state2">
+              <select class="js-example-basic-single select2 form-control" onchange="getval(this);"   id="countries1" name="state1">
                   
                   {{ $filesq }} 
                     @foreach($filesq as $as)
-                    <option value="{{ $as->id }} ">{{ $as->code }} || {{ $as->nom }} </option>
+                    <option value="{{ $as->id }}">{{ $as->code }}  {{ $as->nom }} </option>
                   
                     @endforeach
                   </select>
@@ -159,16 +179,16 @@
                          <td style="width:30%" >
                          
 
-              <select class="js-example-basic-single select2 form-control" onchange="getval(this);"   id="countries2" name="state2">
+              <select class="js-example-basic-single2 select2 form-control" onchange="getval(this);"   id="countries2" name="state2">
                   <option ></option>
                     @foreach($filesqq as $as)
-                    <option value="{{ $as->id }} ">  {{ $as->name }} </option>
+                    <option value="{{ $as->id }}">  {{ $as->name }} </option>
                   
                     @endforeach
                   </select>
                   
                           </td>
-                          <td class="text-left"><input style="width:120px;"  type="text"  class="form-control" id="Qte" value="1"   name="Qte"></td>
+                          <td class="text-left"><input style="width:120px;"  type="text"  class="form-control" id="libelle" value="1"   name="libelle"></td>
 
                           <td class="text-left"><input style="width:80px;"  type="number"  class="form-control" id="debit" value="1"  required="debit" value="0"  name="debit"></td>
 
@@ -207,9 +227,7 @@
                     <button type="submit" value="btn1" name="btn1" class="btn btn-info btn-m my-1"><i class="la la-paper-plane-o"></i> 
             Sauvegarder
         </button>
-          <button type="submit" value="btn2" name="btn2" class="btn btn-success btn-m my-1"><i class="la la-check "></i> 
-           confirmer la commande
-        </button>
+         
         <button type="button" class="btn btn-warning btn-m my-1"><i class="la  la-backward"></i> 
             Annuler
         </button>
@@ -225,7 +243,7 @@
 <script type="text/javascript">
 
     $(".form_datetime").datetimepicker({
-      format: 'dd-mm-yyyy',
+      format: 'yyyy-mm-dd',
     autoclose: true,
     minuteStep: 1,
     maxView: 4,
@@ -240,21 +258,11 @@
 <p id="demo"></p>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
-<script type="text/javascript">
-  
-function getval(sel)
-{
-    /*alert(sel);
-    document.getElementById("demo").innerHTML = 5 + 6;
-    alert(sel.options[sel.selectedIndex].text);*/
 
-}
-
-</script>
 <script type="text/javascript">
     $(document).ready(function () {
         
-   
+
 
 $('.repeater').repeater({
 

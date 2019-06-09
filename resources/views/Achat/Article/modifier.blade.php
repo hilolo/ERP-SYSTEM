@@ -37,7 +37,7 @@
            
                 <div class="card-content">
                     <div class="card-body">
-                        <form action="/updateArticle/{{ $art->id }}" method="POST" enctype="multipart/form-data" >
+                        <form action="/updateArticlea/{{ $art->id }}" method="POST" enctype="multipart/form-data" >
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                   <div class="col-lg-6">
         <div class="card">

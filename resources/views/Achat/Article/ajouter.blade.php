@@ -37,7 +37,7 @@
                 
                 <div class="card-content">
                     <div class="card-body">
-                        <form action="/insertArticle" method="POST"  enctype="multipart/form-data">
+                        <form action="/insertArticlea" method="POST"  enctype="multipart/form-data">
                                      {{ csrf_field() }}
 
                                       <div class="col-lg-6">

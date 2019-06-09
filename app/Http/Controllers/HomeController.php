@@ -56,6 +56,8 @@ class HomeController extends Controller
 
        // dd(auth()->user()->Achat);
 
+
+
         if(auth()->user()->type == '1'){
              Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module ');
         return redirect('/Admin');
@@ -74,7 +76,7 @@ class HomeController extends Controller
 
      if(auth()->user()->Comptable == '1'){
          Alert::warning('Permission Refusée', 'vous n avez pas le droit d acceder au module ');
-        return redirect('/Admin');
+        return redirect('/Comptabilite/Piecescomptables');
         }
 
 

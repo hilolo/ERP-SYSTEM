@@ -24,8 +24,12 @@ class CreateComptepieceTable extends Migration
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->integer('compte_id')->unsigned();
             $table->foreign('compte_id')->references('id')->on('compte')->onDelete('cascade');
+            $table->integer('pieces_id')->nullable()->unsigned();
+            $table->foreign('pieces_id')->references('id')->on('pieces')->onDelete('cascade');
             $table->float('Debit')->nullable();
             $table->float('Credit')->nullable();
+              $table->integer('type')->nullable();    
+             $table->timestamps();
         });
     }
 

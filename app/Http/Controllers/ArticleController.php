@@ -51,7 +51,7 @@ class ArticleController extends Controller
                       
                        <a href="/Vente/' .$user->id. '/ModifierArticle" >  <i class="la la-pencil-square success"></i></a> 
                           
-                    <a href="'. route('deleteartac  ', $user->id) .'"><i class="la la-trash danger"></i> </a>
+                    <a href="'. route('deleteartac', $user->id) .'"><i class="la la-trash danger"></i> </a>
                       
                         
 

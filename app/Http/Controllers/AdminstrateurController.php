@@ -14,14 +14,21 @@ class AdminstrateurController extends Controller
     {
         $this->middleware('auth');
 }
-    public function index()
+
+
+public function index()
     {
-        
+        if(auth()->user()->type == '1'){
+         
         $art=Entreprise::find('1');
         return view('Admin.Users.index',compact('art'));
+      }else   
+      {
+
+  
+      return redirect('/home2');
+      }
     }
-   
-     
 
        public function treeview()
     {

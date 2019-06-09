@@ -91,8 +91,8 @@ Route::get('/Achat/Articles/Data', 'ArticleaController@data');
 
 
 //changment name with viewss
-Route::post('/insertArticle', 'ArticleaController@insert');
-Route::post('/updateArticle/{id}', 'ArticleaController@update');
+Route::post('/insertArticlea', 'ArticleaController@insert');
+Route::post('/updateArticlea/{id}', 'ArticleaController@update');
 Route::get('/SupprimerArticle/{id}', 'ArticleaController@destroy')->name('deleteartac');
 
 
@@ -156,14 +156,23 @@ Route::get('/supprimeruser/{id}', 'AdminstrateurController@destroy')->name('supp
 // Comptabilite
 
 
-Route::get('/Comptabilite/Piècescomptables', 'PiecesController@index');
+Route::get('/Comptabilite/Piecescomptables', 'PiecesController@index');
 Route::get('/Comptabilite/Piècescomptables/AjouterPiéces', 'PiecesController@storeaf');
-Route::get('/Comptabilite/Piècescomptables/Data', 'PiecesController@data');
+Route::get('/Comptabilite/pc/Data', 'PiecesController@data');
+Route::get('/Comptabilite/pc/Data2', 'PiecesController@data2');
 Route::get('/Comptabilite/Piècescomptables/{id}/View', 'PiecesController@View');
+Route::get('/Comptabilite/pdf/ec/{id}', 'PiecesController@pdf')->name('pdfdvqq');
 
 
 
 
 Route::post('/insertpieces', 'PiecesController@insert');
-Route::post('/updatepieces/{id}', 'PiecesController@updatev');
-Route::get('/Supprimerpieces/{id}', 'PiecesController@destroy')->name('deletepiece');
+Route::post('/updatepiecesppst/{id}', 'PiecesController@updatev');
+Route::get('/updatepieces/{id}', 'PiecesController@updatev')->name('validatep');
+Route::get('/Supprimerpieces/{id}', 'PiecesController@destroy')->name('deletepieceq');
+
+
+Route::get('/Comptabilite/Ecriturescomptables', 'EcrituresController@index');
+Route::get('/Comptabilite/ex/Data', 'EcrituresController@data');
+
+
