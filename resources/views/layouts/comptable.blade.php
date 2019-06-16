@@ -238,9 +238,7 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
         <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><span> Rapport</span></a>
           <ul class="dropdown-menu">
             
-            <li class="dropdown " data-menu="dropdown-submenu"><a class="dropdown-item " href="#" data-toggle="dropdown">Compte de résultat </a>
-            
-            </li>
+         
              <li class="dropdown " data-menu="dropdown-submenu"><a class="dropdown-item " href="#" data-toggle="dropdown">Bilan</a>
             
             </li>

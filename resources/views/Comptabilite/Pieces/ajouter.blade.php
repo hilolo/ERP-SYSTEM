@@ -188,7 +188,7 @@
                   </select>
                   
                           </td>
-                          <td class="text-left"><input style="width:120px;"  type="text"  class="form-control" id="libelle" value="1"   name="libelle"></td>
+                          <td class="text-left"><input style="width:120px;"  type="text"  class="form-control" id="libelle"   name="libelle"></td>
 
                           <td class="text-left"><input style="width:80px;"  type="number"  class="form-control" id="debit" value="1"  required="debit" value="0"  name="debit"></td>
 

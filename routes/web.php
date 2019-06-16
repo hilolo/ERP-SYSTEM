@@ -26,6 +26,8 @@ Route::get('/loginn', 'HomeController@login')->name('loginn');
 
 
 /////////////////////////////// Ventte
+
+
 Route::get('/Vente/Clients', 'ClientsController@index');
 Route::get('/Vente/{id}/View', 'ClientsController@View');
 Route::get('/Vente/AjouterClient', 'ClientsController@storeaf');
@@ -78,6 +80,11 @@ Route::get('/Vente/Facture/pdf/{id}', 'FactureController@pdf');
 Route::get('/Vente/Facture/pdfd/{id}', 'FactureController@download');
 Route::get('/Vente/Facture/insert/{id}', 'FactureController@insert')->name('insertfac');
 Route::get('/Vente/Facture/Data', 'FactureController@data');
+
+
+
+Route::get('/Vente/Tableaudebord', 'TblbordController@index1');
+
 
 
 ///////////////////////////////////////////Achat
@@ -137,6 +144,10 @@ Route::get('/Achat/Facture/pdf/{id}', 'FactureaController@pdf');
 Route::get('/Achat/Facture/pdfd/{id}', 'FactureaController@download');
 Route::get('/Achat/Facture/insert/{id}', 'FactureaController@insert')->name('insertfacachat');
 Route::get('/Achat/Facture/Data', 'FactureaController@data');
+Route::get('/Achat/Tableaudebord', 'Tblbord2Controller@index');
+
+
+///// adminn
 
 
 Route::get('/Admin', 'AdminstrateurController@index');
@@ -176,3 +187,10 @@ Route::get('/Comptabilite/Ecriturescomptables', 'EcrituresController@index');
 Route::get('/Comptabilite/ex/Data', 'EcrituresController@data');
 
 
+
+Route::get('/Comptabilite/Grandlivre', 'RapportController@index1');
+Route::get('/Comptabilite/Grandlivre/data', 'RapportController@data1');
+
+
+Route::get('/Comptabilite/Bilan', 'RapportController@index2');
+Route::get('/Comptabilite/Bilan/data', 'RapportController@data2');

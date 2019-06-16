@@ -109,7 +109,7 @@ buttons: [
                     columns: [ 0, 1, 2,3 ]
                 }  }
 ],
-            ajax: 'http://erp.test/Vente/Articles/Data',
+            ajax: '/Vente/Articles/Data',
             "pageLength": 50,
              columns: [
             {data: 'name'},

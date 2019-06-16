@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Demandep extends Model
 {
+
+	
     
 	 protected $table = 'demandep';
 
