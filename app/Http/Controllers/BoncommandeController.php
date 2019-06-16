@@ -7,12 +7,14 @@ use App\Clients;
 use App\Articles;
 use App\Devis;
 use App\Devisarticles;
+use App\Msgdevis;
 use DB; 
 use DateTime;
 use PDF;
 
 class BoncommandeController extends Controller
 {
+  
    
      public function __construct()
     {
@@ -36,6 +38,13 @@ class BoncommandeController extends Controller
 
         $art=Devis::find($id);
     $pdf = PDF::loadView('Boncommande.pdf',compact('art'));
+
+    $msg= new Msgdevis();
+        $msg->status="Boncommande a étais Imprimer  ";
+        $msg->devis_id=$id;
+           $msg->name= "Responsable Vente : " . auth()->user()->name;
+        $msg->save();
+        
 
         //return $pdf->download('invoice.pdf');
     return $pdf->stream();
@@ -130,9 +139,9 @@ class BoncommandeController extends Controller
          {      
         $art=Devis::find($id);
 
-        //a
+        $art2=Msgdevis::all()->where('devis_id',$id);
 
-        return view('Boncommande.view',compact('art'));
+        return view('Boncommande.view',compact('art','art2'));
         }
 
 

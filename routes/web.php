@@ -86,6 +86,10 @@ Route::get('/Vente/Facture/Data', 'FactureController@data');
 Route::get('/Vente/Tableaudebord', 'TblbordController@index1');
 
 
+Route::get('/Vente/Signature/{id}', 'SignatureController@index');
+Route::post('/insertcomment/{id}', 'SignatureController@insert');
+
+
 
 ///////////////////////////////////////////Achat
 
@@ -145,6 +149,10 @@ Route::get('/Achat/Facture/pdfd/{id}', 'FactureaController@download');
 Route::get('/Achat/Facture/insert/{id}', 'FactureaController@insert')->name('insertfacachat');
 Route::get('/Achat/Facture/Data', 'FactureaController@data');
 Route::get('/Achat/Tableaudebord', 'Tblbord2Controller@index');
+
+
+Route::get('/mail', 'Tblbord2Controller@mail');
+Route::get('/aa', 'Tblbord2Controller@aa');
 
 
 ///// adminn

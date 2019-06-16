@@ -10,6 +10,7 @@ use App\Devisarticles;
 use DB; 
 use DateTime;
 use PDF;
+use App\Msgdevis;
 
 
 class DevisController extends Controller
@@ -41,10 +42,19 @@ class DevisController extends Controller
         $art=Devis::find($id);
     $pdf = PDF::loadView('Devis.pdf',compact('art'));
 
+      $msg= new Msgdevis();
+        $msg->status="Devis a étais Imprimer  ";
+        $msg->devis_id= $id;
+           $msg->name= "Responsable Vente : " . auth()->user()->name;
+        $msg->save();
+
         //return $pdf->download('invoice.pdf');
     return $pdf->stream();
 
     }
+
+
+    
 
 
 
@@ -132,6 +142,17 @@ class DevisController extends Controller
         $arRRR->Taxe= $totaltva;
         $arRRR->Total= $total;
         $arRRR->save();
+
+
+        
+
+         $msg= new Msgdevis();
+        $msg->status="Creation Nouveau Devis";
+        $msg->devis_id= $files->id;
+           $msg->name= "Responsable Vente : " . auth()->user()->name;
+        $msg->save();
+
+        
 
                         
 
@@ -228,7 +249,17 @@ class DevisController extends Controller
 
                         
 
+                $msg= new Msgdevis();
+        $msg->status="Creation Nouveau Devis ";
+        $msg->devis_id= $files->id;
+        $msg->name= auth()->user()->name;
+        $msg->save();
 
+             $msg= new Msgdevis();
+        $msg->status="Validé Devis => Bon De commande ";
+        $msg->devis_id= $files->id;
+            $msg->name= "Responsable Vente :" . auth()->user()->name;
+        $msg->save();
 
 
          
@@ -357,8 +388,10 @@ class DevisController extends Controller
         public function View($id)
          {      
         $art=Devis::find($id);
+         $art2=Msgdevis::all()->where('devis_id',$id);
+         
 
-        return view('Devis.view',compact('art'));
+        return view('Devis.view',compact('art','art2'));
         }
 
 
@@ -378,6 +411,15 @@ class DevisController extends Controller
 
 
              $ar->save();
+
+
+              $msg= new Msgdevis();
+        $msg->status="Validé Devis => Bon De commande ";
+        $msg->devis_id= $id;
+        $msg->name= "Responsable Vente :" . auth()->user()->name;
+        $msg->save();
+
+
         return view('Devis.index');
         }
 

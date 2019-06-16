@@ -10,6 +10,7 @@ use App\Clients;
 use DB;
 use DateTime;
 use App\Demandep;
+use Illuminate\Support\Facades\Mail;
 
 class Tblbord2Controller extends Controller
 {
@@ -125,6 +126,30 @@ class Tblbord2Controller extends Controller
   	 return view('Achat.Charts.index',compact('chart','moinsc','moinsc2','total1','total2','total3','total4'));
       
     }
+
+
+
+     public function mail()
+    {
+
+ $data = array('name'=>"Joshua", "body" => "www.google.com");
+Mail::send('mail.az', $data, function($message) {
+  $message->to('mehdielaissidev@gmail.com', 'To Website')
+          ->subject('Online Email Test');
+  $message->from('hiloloarena@gmail.com','From Visitor');
+});
+
+    }
+
+
+
+     public function aa()
+    {
+
+    	return view('mail.az');
+
+    }
+
 
 
 }

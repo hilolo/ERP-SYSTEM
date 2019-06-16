@@ -186,6 +186,68 @@
 		</div>
 		<!--/ Invoice Footer -->
 
+		
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                  
+                    <div class="product-content tab-content px-1 pt-1">
+                      
+                        <div  class="tab-pane active" id="comment">
+                            
+                            <div class="media-list media-bordered">
+
+                                           
+                            	    @foreach($art2 as $as)
+                                <div class="media">
+                                  
+                                    <div class="media-body">
+                                        <h5 class="media-heading mb-0 text-bold-600">
+                                        	{{ $as->name }}
+                                           
+                                        </h5>
+                                        <div class="media-notation mb-1">
+                                        	{{ $as->created_at }}
+                                           
+                                        </div>
+                                        {{ $as->status }}
+
+                                        <br>  <br>
+  <br>
+
+
+                                        @if($as->pathupp == null)  @else
+
+                                 
+                                    	
+                                        <div class="product-img d-flex align-items-center">
+                                        	Signature :
+						<img class="img-fluid" src="/storage/{{ $as->pathupp }}" width="500" height="200" alt="Card image cap">
+
+											</div>
+
+                                   
+                                        	
+                                           
+                                        
+                                 @endif 
+
+                                        
+                                       
+                                    </div>
+                                </div>
+                                  @endforeach
+                                
+                               
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 	</div>
 </section>
 

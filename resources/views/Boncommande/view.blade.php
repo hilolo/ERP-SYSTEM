@@ -7,13 +7,13 @@
 
 <div class="content-header row mb-1">
           <div class="content-header-left col-md-6 col-12 mb-2">
-            <h3 class="content-header-title">Les Devis</h3>
+            <h3 class="content-header-title">Bon de commandes</h3>
             <div class="row breadcrumbs-top">
               <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="index.html">Ventes</a>
                   </li>
-                  <li class="breadcrumb-item active"><a href="#">Les Bon de commandes</a>
+                  <li class="breadcrumb-item active"><a href="#">Bon de commandes</a>
                   </li>
 
                   
@@ -183,6 +183,44 @@
             </div>
         </div>
         <!--/ Invoice Footer -->
+
+          <div class="card">
+            <div class="card-content">
+                <div class="card-body">
+                  
+                    <div class="product-content tab-content px-1 pt-1">
+                      
+                        <div  class="tab-pane active" id="comment">
+                            
+                            <div class="media-list media-bordered">
+
+                                           
+                                  @foreach($art2 as $as)
+                                <div class="media">
+                                  
+                                    <div class="media-body">
+                                        <h5 class="media-heading mb-0 text-bold-600">
+                                          {{ $as->name }}
+                                           
+                                        </h5>
+                                        <div class="media-notation mb-1">
+                                          {{ $as->created_at }}
+                                           
+                                        </div>
+                                        {{ $as->status }}
+                                       
+                                    </div>
+                                </div>
+                                  @endforeach
+                                
+                               
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </section>
