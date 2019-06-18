@@ -175,7 +175,10 @@
 						   <input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<button type="button"  onclick="location.href='http://erp.test/Vente/Devis/print/{{ $art -> id  }}'"  class="btn btn-info btn-m my-1"><i class="la  la-file-zip-o" ></i>Imprimer</button>
 
-					
+				
+		          <a href="/mail/{{ $art->id }}" class="btn btn-success btn-m my-1" ><i class=" la la-mail-forward "></i> Envoyer Par Email </a>
+		        
+
 					<button type="submit" class="btn btn-success btn-m my-1"><i class="la la-check "></i> 
           			 Confirmer
         				</button>

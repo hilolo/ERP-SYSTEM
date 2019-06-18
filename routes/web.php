@@ -11,8 +11,15 @@
 |
 */
 
+/// generale
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('/log', function () {
+    return view('layouts.log');
 });
 
 Auth::routes();
@@ -42,7 +49,7 @@ Route::get('/Vente/Articles', 'ArticleController@index');
 Route::get('/Vente/AjouterArticle', 'ArticleController@storeaf');
 Route::get('/Vente/{id}/ModifierArticle', 'ArticleController@updateaf');
 Route::get('/Vente/Articles/Data', 'ArticleController@data');
-
+                 
 
 Route::post('/insertArticle', 'ArticleController@insert');
 Route::post('/updateArticle/{id}', 'ArticleController@update');
@@ -56,7 +63,7 @@ Route::get('/Vente/Devis/Data', 'DevisController@data');
 Route::get('/Vente/Devis/{id}/View', 'DevisController@View');
 Route::get('/Vente/Devis/print/{id}', 'DevisController@pdf')->name('pdfdv');
 
-
+Route::get('/mail/{id}', 'DevisController@mail');
 
 
 
@@ -151,8 +158,8 @@ Route::get('/Achat/Facture/Data', 'FactureaController@data');
 Route::get('/Achat/Tableaudebord', 'Tblbord2Controller@index');
 
 
-Route::get('/mail', 'Tblbord2Controller@mail');
-Route::get('/aa', 'Tblbord2Controller@aa');
+
+
 
 
 ///// adminn

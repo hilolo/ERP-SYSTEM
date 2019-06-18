@@ -43,6 +43,19 @@ public function index()
 
 
       return datatables()->of( $users)
+       ->editColumn('tva', function( $user) {
+                 if($user->tva == '1'){
+                    return ' Exonere de TVA ACHATS';}
+                    if($user->tva == '2'){
+                    return 'TVA 7% ACHATS';}
+                    if($user->tva == '3'){
+                    return ' TVA 10% ACHATS';}
+                    if($user->tva == '4'){
+                    return 'TVA 17% ACHATS';}
+                    if($user->tva == '5'){
+                    return 'TVA 20% ACHATS';}
+
+                })
         ->addColumn('action', function ($user) {
                 return '
 

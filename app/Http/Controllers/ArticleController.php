@@ -39,10 +39,39 @@ class ArticleController extends Controller
 
     public function data()
         {
-            $users = Articles::select(['id', 'name', 'prix', 'tva', 'code_barre', 'etat']);
+            $users = Articles::select(['id', 'name', 'prix', 'tva', 'code_barre', 'etat','path_img']);
 
 
       return datatables()->of( $users)
+         ->editColumn('tva', function( $user) {
+                 if($user->tva == '1'){
+                    return ' Exonere de TVA VENTES';}
+                    if($user->tva == '2'){
+                    return 'TVA 7% VENTES';}
+                    if($user->tva == '3'){
+                    return ' TVA 10% VENTES';}
+                    if($user->tva == '4'){
+                    return 'TVA 17% VENTES';}
+                    if($user->tva == '5'){
+                    return 'TVA 20% VENTES';}
+
+                })
+          ->addColumn('pic', function( $user) {
+
+
+            //src="{{ Storage::url($as->path_img)}}"
+            $a=str_replace("public","storage",$user->path_img);
+
+                      return '
+
+             
+       
+                      <img class="media-object rounded-circle" src="/'. $a .'" height="60" width="60"  alt="Avatar">
+
+
+                        ';
+
+                })
         ->addColumn('action', function ($user) {
                 return '
 
@@ -59,6 +88,7 @@ class ArticleController extends Controller
 
                         ';
             })
+        ->rawColumns(['action' => 'action','pic' => 'pic']) 
 
 
      ->make(true);

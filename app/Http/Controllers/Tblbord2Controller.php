@@ -129,17 +129,7 @@ class Tblbord2Controller extends Controller
 
 
 
-     public function mail()
-    {
-
- $data = array('name'=>"Joshua", "body" => "www.google.com");
-Mail::send('mail.az', $data, function($message) {
-  $message->to('mehdielaissidev@gmail.com', 'To Website')
-          ->subject('Online Email Test');
-  $message->from('hiloloarena@gmail.com','From Visitor');
-});
-
-    }
+  
 
 
 

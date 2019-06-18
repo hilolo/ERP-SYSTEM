@@ -96,6 +96,7 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
         </ul>
       </div>
       <div class="navbar-container container center-layout">
+
         <div class="collapse navbar-collapse" id="navbar-mobile">
           <ul class="nav navbar-nav mr-auto float-left">
             <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" data-toggle="modal" data-target="#exampleModal" href="#"><i class="ft-menu"></i></a></li>
@@ -104,6 +105,41 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
          
           </ul>
           <ul class="nav navbar-nav float-right">
+            <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-gb"></i><span class="selected-language"></span></a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+                  @guest
+                           
+                        @else
+                        
+
+
+                  @if(Auth::user()->Achat == "1")
+                  
+                  <!-- Floating button Regular with text -->
+                 <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-gb"></i> Achat</a>
+                  
+                  @endif 
+
+                   @if(Auth::user()->Vente == "1")
+                 <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> Vente</a>
+                  
+                  @endif
+
+                  @if(Auth::user()->Comptable == "1")
+                  <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> Comptable</a>
+                 
+                   @endif
+
+                  <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i> Stock</a>
+                  <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i> CRM</a>
+                    
+                
+                       @endguest
+                  
+                </div>
+              </li>
+
             <li class="dropdown dropdown-user nav-item">
               <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="mr-1">Hello,
@@ -115,10 +151,23 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
               <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a>
                 <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
                 <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a>
-                <a
-                class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
-                  <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="ft-power"></i> Logout</a>
+                <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
+
+                       
+
+                                  
+                  <div class="dropdown-divider"></div><a class="dropdown-item" href="#"
+
+                  ref="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                                        {{ __('Logout') }}
+                  ><i class="ft-power"></i>déconnecter</a>
               </div>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
             </li>
 
            
@@ -207,32 +256,35 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
   role="navigation" data-menu="menu-wrapper">
     <div class="navbar-container main-menu-content container center-layout" data-menu="menu-container">
       <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
+
+         <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="/Vente/Tableaudebord" ></i><span>Tableau de bord</span></a>
+          
+        </li>
+
        
         <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><span>Commandes</span></a>
           <ul class="dropdown-menu">
             
-            <li class="dropdown " data-menu="dropdown-submenu"><a class="dropdown-item " href="#" data-toggle="dropdown">Devis </a>
+            <li class="dropdown " data-menu="dropdown-submenu"><a class="dropdown-item " href="/Vente/Devis" >Devis </a>
             
             </li>
-             <li class="dropdown " data-menu="dropdown-submenu"><a class="dropdown-item " href="#" data-toggle="dropdown">Commande</a>
+             <li class="dropdown " data-menu="dropdown-submenu"><a class="dropdown-item " href="/Vente/Boncommande" >Commande</a>
             
             </li>
-             <li class="dropdown " data-menu="dropdown-submenu"  href="/Vente/Clients ><a class="dropdown-item " href="/Vente/Clients" data-toggle="dropdown">Clients</a>
             
-            </li>
 
           </ul>
         </li>
-        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"></i><span>À facturer</span></a>
+        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="/Vente/Factures" ></i><span>Facture</span></a>
           
         </li>
 
 
-        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"></i><span>Articles</span></a>
+        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="/Vente/Articles"></i><span>Articles</span></a>
         
         </li>
 
-        <li class="dropdown nav-item"  href="/Vente/Clients" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="/Vente/Clients" data-toggle="dropdown"></i><span>Clients</span></a>
+        <li class="dropdown nav-item"  href="/Vente/Clients" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="/Vente/Clients"></i><span>Clients</span></a>
         
         </li>
        
@@ -241,169 +293,7 @@ data-open="click" data-menu="horizontal-menu" data-col="2-columns">
       
        
         
-        <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"></i><span>Configuration</span></a>
-          <ul class="dropdown-menu">
-            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i class="la la-bar-chart"></i>google Charts</a>
-              <ul class="dropdown-menu">
-                <li data-menu=""><a class="dropdown-item" href="google-bar-charts.html" data-toggle="dropdown">Bar charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="google-line-charts.html" data-toggle="dropdown">Line charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="google-pie-charts.html" data-toggle="dropdown">Pie charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="google-scatter-charts.html" data-toggle="dropdown">Scatter charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="google-bubble-charts.html" data-toggle="dropdown">Bubble charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="google-other-charts.html" data-toggle="dropdown">Other charts</a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"></i>Echarts</a>
-              <ul class="dropdown-menu">
-                <li data-menu=""><a class="dropdown-item" href="echarts-line-area-charts.html" data-toggle="dropdown">Line &amp; Area charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="echarts-bar-column-charts.html" data-toggle="dropdown">Bar &amp; Column charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="echarts-pie-doughnut-charts.html"
-                  data-toggle="dropdown">Pie &amp; Doughnut charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="echarts-scatter-charts.html" data-toggle="dropdown">Scatter charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="echarts-radar-chord-charts.html" data-toggle="dropdown">Radar &amp; Chord charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="echarts-funnel-gauges-charts.html"
-                  data-toggle="dropdown">Funnel &amp; Gauges charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="echarts-combination-charts.html" data-toggle="dropdown">Combination charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="echarts-advance-charts.html" data-toggle="dropdown">Advance charts</a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i class="la la-area-chart"></i>Chartjs</a>
-              <ul class="dropdown-menu">
-                <li data-menu=""><a class="dropdown-item" href="chartjs-line-charts.html" data-toggle="dropdown">Line charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="chartjs-bar-charts.html" data-toggle="dropdown">Bar charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="chartjs-pie-doughnut-charts.html"
-                  data-toggle="dropdown">Pie &amp; Doughnut charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="chartjs-scatter-charts.html" data-toggle="dropdown">Scatter charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="chartjs-polar-radar-charts.html" data-toggle="dropdown">Polar &amp; Radar charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="chartjs-advance-charts.html" data-toggle="dropdown">Advance charts</a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i class="la la-line-chart"></i>D3 Charts</a>
-              <ul class="dropdown-menu">
-                <li data-menu=""><a class="dropdown-item" href="d3-line-chart.html" data-toggle="dropdown">Line Chart</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="d3-bar-chart.html" data-toggle="dropdown">Bar Chart</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="d3-pie-chart.html" data-toggle="dropdown">Pie Chart</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="d3-circle-diagrams.html" data-toggle="dropdown">Circle Diagrams</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="d3-tree-chart.html" data-toggle="dropdown">Tree Chart</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="d3-other-charts.html" data-toggle="dropdown">Other Charts</a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i class="la la-indent"></i>C3 Charts</a>
-              <ul class="dropdown-menu">
-                <li data-menu=""><a class="dropdown-item" href="c3-line-chart.html" data-toggle="dropdown">Line Chart</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="c3-bar-pie-chart.html" data-toggle="dropdown">Bar &amp; Pie Chart</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="c3-axis-chart.html" data-toggle="dropdown">Axis Chart</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="c3-data-chart.html" data-toggle="dropdown">Data Chart</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="c3-grid-chart.html" data-toggle="dropdown">Grid Chart</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="c3-transform-chart.html" data-toggle="dropdown">Transform Chart</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="c3-other-charts.html" data-toggle="dropdown">Other Charts</a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i class="la la-pie-chart"></i>Chartist</a>
-              <ul class="dropdown-menu">
-                <li data-menu=""><a class="dropdown-item" href="chartist-line-charts.html" data-toggle="dropdown">Line charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="chartist-bar-charts.html" data-toggle="dropdown">Bar charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="chartist-pie-charts.html" data-toggle="dropdown">Pie charts</a>
-                </li>
-              </ul>
-            </li>
-            <li data-menu="">
-              <a class="dropdown-item" href="morris-charts.html" data-toggle="dropdown"><i class="la la-share-alt"></i>Morris Charts</a>
-            </li>
-            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i class="la la-bolt"></i>Flot Charts</a>
-              <ul class="dropdown-menu">
-                <li data-menu=""><a class="dropdown-item" href="flot-line-charts.html" data-toggle="dropdown">Line charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="flot-bar-charts.html" data-toggle="dropdown">Bar charts</a>
-                </li>
-                <li data-menu=""><a class="dropdown-item" href="flot-pie-charts.html" data-toggle="dropdown">Pie charts</a>
-                </li>
-              </ul>
-            </li>
-            <li data-menu="">
-              <a class="dropdown-item" href="rickshaw-charts.html" data-toggle="dropdown"><i class="la la-bullseye"></i>Rickshaw Charts</a>
-            </li>
-            <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown"><i class="la la-map"></i>Maps</a>
-              <ul class="dropdown-menu">
-                <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">google Maps</a>
-                  <ul class="dropdown-menu">
-                    <li data-menu=""><a class="dropdown-item" href="gmaps-basic-maps.html" data-toggle="dropdown">Maps</a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item" href="gmaps-services.html" data-toggle="dropdown">Services</a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item" href="gmaps-overlays.html" data-toggle="dropdown">Overlays</a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item" href="gmaps-routes.html" data-toggle="dropdown">Routes</a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item" href="gmaps-utils.html" data-toggle="dropdown">Utils</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Vector Maps</a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">jQuery Mapael</a>
-                      <ul class="dropdown-menu">
-                        <li data-menu=""><a class="dropdown-item" href="vector-maps-mapael-basic.html"
-                          data-toggle="dropdown">Basic Maps</a>
-                        </li>
-                        <li data-menu=""><a class="dropdown-item" href="vector-maps-mapael-advance.html"
-                          data-toggle="dropdown">Advance Maps</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item" href="vector-maps-jvector.html" data-toggle="dropdown">jVector Map</a>
-                    </li>
-                    <li data-menu=""><a class="dropdown-item" href="vector-maps-jvq.html" data-toggle="dropdown">JQV Map</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
+       
       </ul>
     </div>
   </div>

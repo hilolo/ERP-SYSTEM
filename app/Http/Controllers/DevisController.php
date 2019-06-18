@@ -11,6 +11,8 @@ use DB;
 use DateTime;
 use PDF;
 use App\Msgdevis;
+use Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class DevisController extends Controller
@@ -19,7 +21,7 @@ class DevisController extends Controller
           public function __construct()
     {
         $this->middleware('auth');
-}
+        }
 
 
 
@@ -53,8 +55,27 @@ class DevisController extends Controller
 
     }
 
+       public function mail($id)
+    {
 
-    
+         
+
+         $art=Devis::find($id);
+
+        $mailtooo= $art->client->email;
+        
+
+
+ $data = array('name'=>$art->client->name, "body" => "SO-000".$art->id, "idd" => $art->id);
+Mail::send('mail.az', $data, function($message)  use ($mailtooo) {
+  $message->to($mailtooo )
+          ->subject('Signé Votre Devis ');
+  $message->from('info@gmail.com','MSI ERP DEVIS');
+});
+      alert('Message',' Devis Envoyer ' .  $mailtooo , 'success');
+    return redirect('/Vente/Devis');
+
+    }
 
 
 
@@ -157,7 +178,7 @@ class DevisController extends Controller
                         
 
 
-
+            alert('Message',' Devis ajouté avec success  '  , 'success');
 
          
 
@@ -262,9 +283,9 @@ class DevisController extends Controller
         $msg->save();
 
 
-         
+             alert('Message',' Bon de commande ajouté avec success  '  , 'success');
 
-            return redirect('/Vente/Devis');
+            return redirect('/Vente/Boncommande');
 
 
 
@@ -336,6 +357,27 @@ class DevisController extends Controller
                         ';
             })
                   ->addColumn('action2', function ($user) {
+                    if($user->type == '1'){
+                return '
+              <div class="btn-group mr-1 mb-1 text-center">
+                       
+                          <a href="/Vente/Devis/'. $user->id .'/View"><i class="la la-eye success"></i> </a>
+                          </div>
+
+
+                 <div class="btn-group mr-1 mb-1 text-center">
+                          <a href="'. route('deletedevis', $user->id) .'"><i class="la la-trash danger"></i> </a>
+                          </div>
+
+                          <div class="btn-group mr-1 mb-1 text-center">
+                          <a href="/mail/'. $user->id .'"><i class=" la la-mail-forward info"></i> </a>
+                          </div>
+
+
+
+                        ';
+                        }else 
+                        {
                 return '
               <div class="btn-group mr-1 mb-1 text-center">
                        
@@ -347,6 +389,9 @@ class DevisController extends Controller
                           </div>
 
                         ';
+                        }
+
+
             })
               ->rawColumns(['action' => 'action2','action2' => 'action2'])     
                      ->make(true);
@@ -379,6 +424,9 @@ class DevisController extends Controller
 
          $share = Devis::find($id);
          $share->delete();
+
+
+         alert('Message','Supprimer avec success  '  , 'success');
 
         return view('Devis.index');
         }
@@ -420,7 +468,8 @@ class DevisController extends Controller
         $msg->save();
 
 
-        return view('Devis.index');
+                  alert('Message','Changment etat Devis => Bon de commande '  , 'success');
+              return view('Boncommande.index');
         }
 
 

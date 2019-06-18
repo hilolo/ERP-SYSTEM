@@ -8,6 +8,7 @@ use App\Entreprise;
 use Storage;
 use App\Clients;
 use App\Msgdevis;
+use DateTime;
 
 
 class SignatureController extends Controller
@@ -28,6 +29,17 @@ class SignatureController extends Controller
 
        public function insert(Request $request,$id)
     {    
+         $dt = new DateTime();
+
+              $art=Devis::find($id);
+           $art->date_confirmation=$dt->format('Y-m-d H:i:s');
+            $art->type='2';
+            $art->etat='Bon de commande';
+            
+
+
+             $art->save();
+
 
 
           $image = $request->devode;  // your base64 encoded
@@ -45,6 +57,8 @@ class SignatureController extends Controller
         $msg->name= "Client :" . auth()->user()->name;
         $msg->pathupp=$imageName;
         $msg->save();
+
+         return redirect('/');
 
 
      

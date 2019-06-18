@@ -93,19 +93,31 @@
 
 <div class="card">
               <div class="card-header">
-                <h4 class="card-title text-center">Total des transactions</h4>
+                <h4 class="card-title text-center">Total </h4>
               </div>
               <div class="card-content collapse show">
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-md-6 col-12 border-right-blue-grey border-right-lighten-5 text-center">
                       <h6 class="danger text-bold-600"></h6>
-                      <h4 class="font-large-2 text-bold-400"> {{$orders[0]->total_sales}} MAD  </h4>
+                      <h4 class="font-large-2 text-bold-400"> 
+                            @if($orders[0]->total_sales == null)  0 MAD @else
+                                  {{ $orders[0]->total_sales }} 
+                                MAD @endif
+
+
+                      </h4>
                       <p class="blue-grey lighten-2 mb-0">Devis/Bon Commande</p>
                     </div>
                     <div class="col-md-6 col-12 text-center">
                       <h6 class="success text-bold-600">{{$perc}} %</h6>
-                      <h4 class="font-large-2 text-bold-400">{{$orders2[0]->total_sales}} MAD </h4>
+                      <h4 class="font-large-2 text-bold-400">
+                        @if($orders2[0]->total_sales == null)  0 MAD @else
+                                  {{ $orders2[0]->total_sales }} 
+                                MAD @endif
+
+
+                       </h4>
                       <p class="blue-grey lighten-2 mb-0">Payé</p>
                     </div>
                   </div>

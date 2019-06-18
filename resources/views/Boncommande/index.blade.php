@@ -89,6 +89,26 @@
 
                             ,processing: false,
             serverSide: true,
+            dom: 'Bfrtip',
+buttons: [
+//'copy', 'csv', 'excel', 'pdf', 'print'
+
+ { extend: 'copy', text: 'Copier', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1'},
+ { extend: 'excel', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
+                    columns: [ 0, 1, 2,3 ]
+                }  },
+  { extend: 'csv', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
+                    columns: [ 0, 1, 2,3 ]
+                }  },
+ { extend: 'pdf', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
+                    columns: [ 0, 1, 2,3 ]
+                }  },
+  { extend: 'print', text: 'Imprimer Les Bon de commandes', className: 'btn btn-sm btn-danger box-shadow-1 mr-1 mb-1',  exportOptions: {
+                    columns: [ 0, 1, 2,3 ]
+                }  }
+],
+
+
               "order": [[ 1, "asc" ]],
             ajax: '/Vente/Devis/Data2',
             "pageLength": 50,

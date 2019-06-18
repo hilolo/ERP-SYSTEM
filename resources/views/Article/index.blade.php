@@ -53,6 +53,7 @@
                                 <table class="table alt-pagination customer-wrapper dataTable no-footer" id="dataTables-example">
                                     <thead>
                                         <tr>
+                                          <td>Image</td>
                                          <td>Nom</td>
                                         <td >prix</td>
                                         <td>TVA</td>
@@ -74,7 +75,6 @@
         </div>
     </div>
 </section>
-
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
@@ -112,6 +112,7 @@ buttons: [
             ajax: '/Vente/Articles/Data',
             "pageLength": 50,
              columns: [
+              {data: 'pic', name: 'pic', orderable: false, searchable: false},
             {data: 'name'},
             {data: 'prix'},
             {data: 'tva'},
